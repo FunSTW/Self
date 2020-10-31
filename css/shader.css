@@ -1,0 +1,10 @@
+.btn {
+    font-size: 20px;
+    height: 100%;
+    width: 100%;
+    text-align: left;
+}
+.card-header{
+	padding-top: 0;
+	padding-bottom: 0;
+}
