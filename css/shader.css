@@ -3,8 +3,11 @@
     height: 100%;
     width: 100%;
     text-align: left;
+    text-decoration: none;
 }
-.card-header{
-	padding-top: 0;
-	padding-bottom: 0;
+
+
+.card-header {
+    padding-top: 0;
+    padding-bottom: 0;
 }
