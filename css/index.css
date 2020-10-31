@@ -1,0 +1,151 @@
+* {
+    font-family: 'Noto Sans TC', '微軟正黑體', sans-serif;
+}
+
+body,
+html {
+    height: 100%;
+    font-size: 100%;
+}
+
+a {
+    color: rgb(0, 180, 166);
+}
+
+hr {
+    border-top: 1px solid rgb(0, 150, 136);
+}
+
+h4 {
+    color: rgb(0, 100, 100);
+}
+
+.h4 {
+    color: rgb(0, 100, 100);
+}
+
+.text-info {
+    color: rgb(0, 150, 136);
+}
+
+.theme {
+    color: rgb(0, 150, 136);
+}
+
+.theme img {
+    height: 50px;
+    width: auto;
+    padding-right: 10px;
+}
+
+.margin-center {
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+.id {
+    height: 250px;
+    width: auto;
+}
+
+.img_icon {
+    transition: all 0.2s ease;
+    width: 40px;
+    height: auto;
+}
+
+.img_icon:hover {
+    filter: brightness(50%);
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+ul.timeline {
+    list-style-type: none;
+    position: relative;
+}
+
+ul.timeline:before {
+    content: ' ';
+    background: #d4d9df;
+    display: inline-block;
+    position: absolute;
+    left: 17px;
+    width: 2px;
+    height: 100%;
+    z-index: 400;
+}
+
+ul.timeline>li {
+    margin: 10px 0;
+}
+
+ul.timeline>li:before {
+    content: ' ';
+    background: white;
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid #009688;
+    left: 10px;
+    width: 15px;
+    height: 15px;
+    z-index: 400;
+}
+
+ul.timeline>li>p {
+    margin: 0px;
+}
+
+ul.skill {
+    padding: 0px;
+    list-style-type: circle;
+}
+
+ul.skill>li {
+    margin-left: 10%;
+}
+
+blockquote {
+    border: 0px;
+    font-weight: bolder !important;
+    border-left: 5px solid;
+    margin: 0;
+}
+
+@media print {
+    a {
+        text-decoration: none !important;
+    }
+
+    .hidePrint {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+
+    body,
+    html {
+        font-size: 90%;
+    }
+
+    .img_icon {
+        width: 30px;
+        height: auto;
+    }
+
+    .id {
+        height: 150px;
+        margin: 10px;
+        width: auto;
+    }
+
+    .margin-center {
+        margin-right: 10%;
+        margin-left: 10%;
+    }
+}
