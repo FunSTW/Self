@@ -32,3 +32,7 @@
     height: 100%;
     border: 0;
 }
+
+.jumbotron{
+	margin-bottom :1rem;
+}
