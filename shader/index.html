@@ -31,59 +31,76 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="h2 theme d-flex align-items-center font-weight-bold px-3"><img src="../images/writing.png">Shader 製作</div>
+            <div class="h2 theme d-flex align-items-center font-weight-bold p-3"><img src="../images/writing.png"> Shader 製作</div>
             <div class="col-12">
                 <div class="accordion" id="shaderMain">
                     <div class="card">
-                        <div class="card-header" id="shader1">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-                                Toon Flame Tornado | 卡通火龍捲風
+                        <div class="card-header" id="B">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#BC" aria-expanded="false" aria-controls="BC">
+                                Billboard | 廣告板 (For Unity Quad Mesh)
                             </button>
                         </div>
-                        <div id="collapse1" class="collapse" aria-labelledby="shader1" data-parent="#shaderMain">
+                        <div id="BC" class="collapse" aria-labelledby="B" data-parent="#shaderMain">
                             <div class="card-body">
                                 <div class="row mx-0 mx-lg-3">
                                     <blockquote class="pl-3 h4 col-12">Effect Preview</blockquote>
-                                    <div class="col-12 col-lg-4 align-self-center text-center p-2">
-                                        <div class="video169">
-                                            <iframe class="video" src="https://drive.google.com/file/d/1WjvwZGKh9iqwjoaegjOyPbu5fb8cty5N/preview" allowfullscreen></iframe>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-lg-4 align-self-center text-center p-2">
-                                        <div class="video169">
-                                            <iframe class="video" src="https://drive.google.com/file/d/1IsvoGpyGmfpiV_oC6x4imHSKdq0dhrWc/preview" allowfullscreen></iframe>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-lg-4 align-self-center text-center p-2">
-                                        <div class="video169">
-                                            <iframe class="video" src="https://drive.google.com/file/d/1u0hPmlfarskTU46kC1MBK6TbDrDVdMJf/preview" allowfullscreen></iframe>
-                                        </div>
-                                    </div>
-                                    <blockquote class="pl-3 h4 col-12">Model & Texture</blockquote>
-                                    <div class="col-12 col-lg-6 offset-lg-3 text-center">
-                                        <img class="w-100" src="images/TornadoModel.jpg">
-                                        龍捲風模型
+                                    <div class="col-12 col-lg-6 offset-lg-3 align-self-center text-center p-2">
+                                        <img class="w-100" src="images/BillboardPreview.gif">
                                     </div>
                                     <blockquote class="pl-3 h4 col-12">Shader</blockquote>
                                     <div class="col-12 text-center">
-                                        <img class="w-100" src="images/TornadoSG.jpg">
+                                        <img class="w-100" src="images/BillboardSubSG.jpg">
+                                        <p>Shader Graph Sub Node</p>
+                                    </div>
+                                    <div class="col-lg-6 offset-lg-3 text-center">
+                                        <img class="w-100" src="images/BillboardSG.jpg">
                                         <p>Shader Graph Node</p>
                                     </div>
                                     <blockquote class="pl-3 h4 col-12">Download & Reference</blockquote>
                                     <div class="px-3">
-                                        <li><a href="https://drive.google.com/drive/folders/1cJ6fEmzDC1lOIYmXCyGx8Sy-Z9fW4Apd?usp=sharing">Download</a></li>
+                                        <li><a href="https://drive.google.com/file/d/1nLnNH7ZShTy8tw4z49y8cWWZ_CJZfwVQ/view?usp=sharing">Download</a></li>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header" id="shader2">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                        <div class="card-header" id="CFO">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#CFOC" aria-expanded="false" aria-controls="CFOC">
+                                Camera Fade Out | 鏡頭淡出
+                            </button>
+                        </div>
+                        <div id="CFOC" class="collapse" aria-labelledby="CFO" data-parent="#shaderMain">
+                            <div class="card-body">
+                                <div class="row mx-0 mx-lg-3">
+                                    <blockquote class="pl-3 h4 col-12">Effect Preview</blockquote>
+                                    <div class="col-12 col-lg-6 offset-lg-3 align-self-center text-center p-2">
+                                        <img class="w-100" src="images/CameraFadeOutPreview.gif">
+                                    </div>
+                                    <blockquote class="pl-3 h4 col-12">Shader</blockquote>
+                                    <div class="col-12 text-center">
+                                        <img class="w-100" src="images/CameraFadeOutSubSG.jpg">
+                                        <p>Shader Graph Sub Node</p>
+                                    </div>
+                                    <div class="col-lg-8 offset-lg-2 text-center">
+                                        <img class="w-100" src="images/CameraFadeOutSG.jpg">
+                                        <p>Shader Graph Node</p>
+                                    </div>
+                                    <blockquote class="pl-3 h4 col-12">Download & Reference</blockquote>
+                                    <div class="px-3">
+                                        <li><a href="https://drive.google.com/file/d/1nLnNH7ZShTy8tw4z49y8cWWZ_CJZfwVQ/view?usp=sharing">Download</a></li>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="CM">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#CMC" aria-expanded="false" aria-controls="CMC">
                                 Color Mask | 利用Mask自定義顏色
                             </button>
                         </div>
-                        <div id="collapse2" class="collapse" aria-labelledby="shader2" data-parent="#shaderMain">
+                        <div id="CMC" class="collapse" aria-labelledby="CM" data-parent="#shaderMain">
                             <div class="card-body">
                                 <div class="row mx-0 mx-lg-3">
                                     <blockquote class="pl-3 h4 col-12">Effect Preview</blockquote>
@@ -115,40 +132,12 @@
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header" id="shader3">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                                Graph Twist | 圖片扭曲
-                            </button>
-                        </div>
-                        <div id="collapse3" class="collapse" aria-labelledby="shader3" data-parent="#shaderMain">
-                            <div class="card-body">
-                                <div class="row mx-0 mx-lg-3">
-                                    <blockquote class="pl-3 h4 col-12">Effect Preview</blockquote>
-                                    <div class="col-12 col-lg-10 offset-lg-1 align-self-center text-center p-2">
-                                        <div class="video11">
-                                            <iframe class="video" src="https://drive.google.com/file/d/1a3-D-oEsh6XapdbNIzpcMNpOykydqZLX/preview" allowfullscreen></iframe>
-                                        </div>
-                                    </div>
-                                    <blockquote class="pl-3 h4 col-12">Shader</blockquote>
-                                    <div class="col-12 text-center">
-                                        <img class="w-100" src="images/GraphTwistSG.jpg">
-                                        <p>Shader Graph Node</p>
-                                    </div>
-                                    <blockquote class="pl-3 h4 col-12">Download & Reference</blockquote>
-                                    <div class="px-3">
-                                        <li><a href="https://drive.google.com/drive/folders/17SqXeXn_hSnzZ9eAW5z1sIIMLsmpiQPs?usp=sharing">Download</a></li>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="shader4">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                        <div class="card-header" id="FF">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#FFC" aria-expanded="false" aria-controls="FFC">
                                 Force Field | 力場
                             </button>
                         </div>
-                        <div id="collapse4" class="collapse" aria-labelledby="shader4" data-parent="#shaderMain">
+                        <div id="FFC" class="collapse" aria-labelledby="FF" data-parent="#shaderMain">
                             <div class="card-body">
                                 <div class="row mx-0 mx-lg-3">
                                     <blockquote class="pl-3 h4 col-12">Effect Preview</blockquote>
@@ -183,60 +172,71 @@
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header" id="shader5">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                                Billboard | 廣告板 (For Unity Quad Mesh)
+                        <div class="card-header" id="GT">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#GTC" aria-expanded="false" aria-controls="GTC">
+                                Graph Twist | 圖片扭曲
                             </button>
                         </div>
-                        <div id="collapse5" class="collapse" aria-labelledby="shader5" data-parent="#shaderMain">
+                        <div id="GTC" class="collapse" aria-labelledby="GT" data-parent="#shaderMain">
                             <div class="card-body">
                                 <div class="row mx-0 mx-lg-3">
                                     <blockquote class="pl-3 h4 col-12">Effect Preview</blockquote>
-                                    <div class="col-12 col-lg-6 offset-lg-3 align-self-center text-center p-2">
-                                        <img class="w-100" src="images/BillboardPreview.gif">
+                                    <div class="col-12 col-lg-10 offset-lg-1 align-self-center text-center p-2">
+                                        <div class="video11">
+                                            <iframe class="video" src="https://drive.google.com/file/d/1a3-D-oEsh6XapdbNIzpcMNpOykydqZLX/preview" allowfullscreen></iframe>
+                                        </div>
                                     </div>
                                     <blockquote class="pl-3 h4 col-12">Shader</blockquote>
                                     <div class="col-12 text-center">
-                                        <img class="w-100" src="images/BillboardSubSG.jpg">
-                                        <p>Shader Graph Sub Node</p>
-                                    </div>
-                                    <div class="col-lg-6 offset-lg-3 text-center">
-                                        <img class="w-100" src="images/BillboardSG.jpg">
+                                        <img class="w-100" src="images/GraphTwistSG.jpg">
                                         <p>Shader Graph Node</p>
                                     </div>
                                     <blockquote class="pl-3 h4 col-12">Download & Reference</blockquote>
                                     <div class="px-3">
-                                        <li><a href="https://drive.google.com/file/d/1nLnNH7ZShTy8tw4z49y8cWWZ_CJZfwVQ/view?usp=sharing">Download</a></li>
+                                        <li><a href="https://drive.google.com/drive/folders/17SqXeXn_hSnzZ9eAW5z1sIIMLsmpiQPs?usp=sharing">Download</a></li>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header" id="shader6">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
-                                Camera Fade Out | 鏡頭淡出
+                        <div class="card-header" id="TFF">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#TFFC" aria-expanded="false" aria-controls="TFFC">
+                                Toon Flame Tornado | 卡通火龍捲風
                             </button>
                         </div>
-                        <div id="collapse6" class="collapse" aria-labelledby="shader6" data-parent="#shaderMain">
+                        <div id="TFFC" class="collapse" aria-labelledby="TFF" data-parent="#shaderMain">
                             <div class="card-body">
                                 <div class="row mx-0 mx-lg-3">
                                     <blockquote class="pl-3 h4 col-12">Effect Preview</blockquote>
-                                    <div class="col-12 col-lg-6 offset-lg-3 align-self-center text-center p-2">
-                                        <img class="w-100" src="images/CameraFadeOutPreview.gif">
+                                    <div class="col-12 col-lg-4 align-self-center text-center p-2">
+                                        <div class="video169">
+                                            <iframe class="video" src="https://drive.google.com/file/d/1WjvwZGKh9iqwjoaegjOyPbu5fb8cty5N/preview" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 align-self-center text-center p-2">
+                                        <div class="video169">
+                                            <iframe class="video" src="https://drive.google.com/file/d/1IsvoGpyGmfpiV_oC6x4imHSKdq0dhrWc/preview" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 align-self-center text-center p-2">
+                                        <div class="video169">
+                                            <iframe class="video" src="https://drive.google.com/file/d/1u0hPmlfarskTU46kC1MBK6TbDrDVdMJf/preview" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                    <blockquote class="pl-3 h4 col-12">Model & Texture</blockquote>
+                                    <div class="col-12 col-lg-6 offset-lg-3 text-center">
+                                        <img class="w-100" src="images/TornadoModel.jpg">
+                                        龍捲風模型
                                     </div>
                                     <blockquote class="pl-3 h4 col-12">Shader</blockquote>
                                     <div class="col-12 text-center">
-                                        <img class="w-100" src="images/CameraFadeOutSubSG.jpg">
-                                        <p>Shader Graph Sub Node</p>
-                                    </div>
-                                    <div class="col-lg-8 offset-lg-2 text-center">
-                                        <img class="w-100" src="images/CameraFadeOutSG.jpg">
+                                        <img class="w-100" src="images/TornadoSG.jpg">
                                         <p>Shader Graph Node</p>
                                     </div>
                                     <blockquote class="pl-3 h4 col-12">Download & Reference</blockquote>
                                     <div class="px-3">
-                                        <li><a href="https://drive.google.com/file/d/1nLnNH7ZShTy8tw4z49y8cWWZ_CJZfwVQ/view?usp=sharing">Download</a></li>
+                                        <li><a href="https://drive.google.com/drive/folders/1cJ6fEmzDC1lOIYmXCyGx8Sy-Z9fW4Apd?usp=sharing">Download</a></li>
                                     </div>
                                 </div>
                             </div>
