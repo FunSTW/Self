@@ -62,9 +62,18 @@ h4 {
     filter: brightness(50%);
 }
 
+.img_hover:hover {
+    filter: brightness(80%);
+}
+
 .vertical-align {
     display: flex;
     align-items: center;
+}
+
+.card-header:hover {
+    transition: all 0.2s ease;
+    background-color:rgba(0,0,0,.1);
 }
 
 ul.timeline {

@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="jumbotron jumbotron-fluid" style="background-image: url('../images/MyselfBG.jpg'); ">
+    <div class="jumbotron jumbotron-fluid" style="background-image: url('../images/MyselfBG.jpg'); background-size: cover; ">
         <div class="container">
             <div class="text-white row vertical-align">
                 <div class="offset-sm-1 col-sm-3 col-4 text-right">
@@ -24,7 +24,7 @@
                 <div class="col-8 col-sm-8">
                     <h3>顧文翰 Ku,Wen-Han</h3>
                     <h5>程式設計 X 技術美術</h5>
-                    <h5>Shader</h5>
+                    <h5>Vertex & Fragment Shader , Compute Shader</h5>
                 </div>
             </div>
         </div>
@@ -145,11 +145,100 @@
                     <div class="card">
                         <div class="card-header" id="shader4">
                             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                                Shield | 防護盾
+                                Force Field | 力場
                             </button>
                         </div>
                         <div id="collapse4" class="collapse" aria-labelledby="shader4" data-parent="#shaderMain">
                             <div class="card-body">
+                                <div class="row mx-0 mx-lg-3">
+                                    <blockquote class="pl-3 h4 col-12">Effect Preview</blockquote>
+                                    <div class="col-12 col-lg-10 offset-lg-1 align-self-center text-center p-2">
+                                        <div class="video169">
+                                            <iframe class="video" src="https://drive.google.com/file/d/1JjhmGV7e8-VJL9aRPMiF8AxyxMg0p1RL/preview" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                    <blockquote class="pl-3 h4 col-12">Model & Texture</blockquote>
+                                    <div class="col-6 col-lg-6 offset-lg-3 text-center">
+                                        <img class="w-100" src="images/HexagonPatternTexture.jpg">
+                                        <p>Pattern Texture</p>
+                                    </div>
+                                    <blockquote class="pl-3 h4 col-12">Tutorial</blockquote>
+                                    <div class="col-12 col-lg-10 offset-lg-1 align-self-center text-center p-2">
+                                        <div class="video169">
+                                            <iframe class="video" src="https://www.youtube.com/embed/IzJuqhWmN3k" allowfullscreen></iframe>
+                                        </div>
+                                        如何獲得Depth
+                                    </div>
+                                    <blockquote class="pl-3 h4 col-12">Shader</blockquote>
+                                    <div class="col-12 text-center">
+                                        <img class="w-100" src="images/ForceFieldSG.jpg">
+                                        <p>Shader Graph Node</p>
+                                    </div>
+                                    <blockquote class="pl-3 h4 col-12">Download & Reference</blockquote>
+                                    <div class="px-3">
+                                        <li><a href="https://drive.google.com/drive/folders/1JxagJh8cBAuF295XeB441CCZq5qrv9WH?usp=sharing">Download</a></li>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="shader5">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                Billboard | 廣告板 (For Unity Quad Mesh)
+                            </button>
+                        </div>
+                        <div id="collapse5" class="collapse" aria-labelledby="shader5" data-parent="#shaderMain">
+                            <div class="card-body">
+                                <div class="row mx-0 mx-lg-3">
+                                    <blockquote class="pl-3 h4 col-12">Effect Preview</blockquote>
+                                    <div class="col-12 col-lg-6 offset-lg-3 align-self-center text-center p-2">
+                                        <img class="w-100" src="images/BillboardPreview.gif">
+                                    </div>
+                                    <blockquote class="pl-3 h4 col-12">Shader</blockquote>
+                                    <div class="col-12 text-center">
+                                        <img class="w-100" src="images/BillboardSubSG.jpg">
+                                        <p>Shader Graph Sub Node</p>
+                                    </div>
+                                    <div class="col-lg-6 offset-lg-3 text-center">
+                                        <img class="w-100" src="images/BillboardSG.jpg">
+                                        <p>Shader Graph Node</p>
+                                    </div>
+                                    <blockquote class="pl-3 h4 col-12">Download & Reference</blockquote>
+                                    <div class="px-3">
+                                        <li><a href="https://drive.google.com/file/d/1nLnNH7ZShTy8tw4z49y8cWWZ_CJZfwVQ/view?usp=sharing">Download</a></li>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="shader6">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                                Camera Fade Out | 鏡頭淡出
+                            </button>
+                        </div>
+                        <div id="collapse6" class="collapse" aria-labelledby="shader6" data-parent="#shaderMain">
+                            <div class="card-body">
+                                <div class="row mx-0 mx-lg-3">
+                                    <blockquote class="pl-3 h4 col-12">Effect Preview</blockquote>
+                                    <div class="col-12 col-lg-6 offset-lg-3 align-self-center text-center p-2">
+                                        <img class="w-100" src="images/CameraFadeOutPreview.gif">
+                                    </div>
+                                    <blockquote class="pl-3 h4 col-12">Shader</blockquote>
+                                    <div class="col-12 text-center">
+                                        <img class="w-100" src="images/CameraFadeOutSubSG.jpg">
+                                        <p>Shader Graph Sub Node</p>
+                                    </div>
+                                    <div class="col-lg-8 offset-lg-2 text-center">
+                                        <img class="w-100" src="images/CameraFadeOutSG.jpg">
+                                        <p>Shader Graph Node</p>
+                                    </div>
+                                    <blockquote class="pl-3 h4 col-12">Download & Reference</blockquote>
+                                    <div class="px-3">
+                                        <li><a href="https://drive.google.com/file/d/1nLnNH7ZShTy8tw4z49y8cWWZ_CJZfwVQ/view?usp=sharing">Download</a></li>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -159,7 +248,7 @@
     </div>
     </div>
     <footer class="footer text-center small hidePrint pt-3">
-        RESUME Designed by Ku,Wen-Han © <i>last update 2020.11</i>
+        PAGE Designed by Ku,Wen-Han © <i>last update 2020.11</i>
     </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
