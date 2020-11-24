@@ -76,6 +76,10 @@ h4 {
     background-color:rgba(0,0,0,.1);
 }
 
+.w-33 {
+    width: 30%!important;
+}
+
 ul.timeline {
     list-style-type: none;
     position: relative;
@@ -162,3 +166,5 @@ blockquote {
         margin-left: 10%;
     }
 }
+
+
