@@ -21,37 +21,46 @@
         background-color: black;
     }
 
-    hr{
+    hr {
         border-top: 1px solid white;
     }
+
+    .type1 {}
+
+    .type2 {}
+
+    .imageIndex {
+        width: 100%;
+    }
+
+    .videoIndex {
+        width: 100%;
+        height: 100%;
+    }
+
+    .gifIndex {
+        width: auto;
+        height: 100%;
+    }
+
+    .card-header {
+        background-color: #111111;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        padding-right: 6px;
+        padding-left: 6px;
+    }
+
+    .card-body {
+        height: 305px;
+        background-color: #222222;
+        padding: 0px;
+    }
+
+    .card-space {
+        padding: 3px;
+    }
     </style>
-    <script>
-        function FindTag() {
-            var c = $(".card");
-            var str = document.getElementById("search").value;
-            if(str === "") return;
-            SetSearchTag(str);
-            for (var i = c.length - 1; i >= 0; i--) {
-                c[i].style.display = "none";
-                if(c[i].innerText.search(str) <= -1) continue;
-                if (c[i].style.display === "none") {
-                    c[i].style.display = "block";
-                }
-            }
-        }
-        function ResetTag() {
-            var c = $(".card");
-            $("#search")[0].value = "";
-            SetSearchTag("無");
-            for (var i = c.length - 1; i >= 0; i--) {
-                c[i].style.display = "block";
-            }
-        }
-        function SetSearchTag(str) {
-            var text = "尋找的標籤 : "
-            $("#searchTag")[0].innerText = text + str;
-        }
-    </script>
 </head>
 
 <body>
@@ -60,32 +69,89 @@
             <div class="col-12 h1 text-center">
                 文翰 の 圖學 Idea 圖庫
             </div>
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-lg-3">
                 <div class="form-group">
                     <p id="searchTag">尋找的標籤 : 無</p>
-                    <input type="text" class="form-control" placeholder="找 Tag" id="search">
-                    <button class="btn btn-light" onclick="FindTag()">篩選</button>
+                    <input type="text" class="form-control" placeholder="找 Tag" id="search" autocomplete="off">
+                    <button id="filter" class="btn btn-light" onclick="FindTag()">篩選</button>
                     <button class="btn btn-light" onclick="ResetTag()">重置</button>
                     <hr>
-                    <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Regular_Expressions">用 JavaScript 正規表示式</a>
+                    <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Regular_Expressions">JavaScript 正規表示式</a>
                     <hr>
-                    未來更新:
-                    <li>所有cardheader card都統一打上參考 & 文章標籤</li>
-                    <li>關掉input預設輸入...</li>
-                    <li>讓Enter有用</li>
+                    待找素材:
+                    <li>臉部normal陰影補光參考</li>
+                    <li>鉛筆筆觸NPR參考</li>
+                    <li>PostProcessing效果參考</li>
                 </div>
             </div>
-            <div class="col-12 col-md-9">
+            <div class="col-12 col-lg-9">
                 <div class="row">
-                    <div class="col-12 col-sm-6 col-md-4 p-0">
+                    <div class="col-12 col-md-6 col-lg-4 card-space">
                         <div class="card">
-                            <div class="card-header">
-                                <a href="https://twitter.com/mozuya_/status/1334476700558581761">3D 卡通渲染 面部變形 朝向攝影機</a>
+                            <div class="card-header type1">
+                                <a href="https://twitter.com/mozuya_/status/1334476700558581761">3D 模型 卡通 NPR 渲染 面部變形 動作</a>
                             </div>
                             <div class="card-body p-0">
-                                <video style="width: 100%; height: auto;" src="video/ToonFaceCamera.mp4" type="sample/mp4" controls autoplay muted loop>
+                                <video class="videoIndex" src="image/ToonFaceCamera.mp4" type="sample/mp4" controls autoplay muted loop>
                                     Your browser does not support the video tag.
                                 </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 card-space">
+                        <div class="card">
+                            <div class="card-header type1">
+                                <a href="https://twitter.com/pale_c498/status/1300431896984182788">3D 模型 卡通 NPR 渲染 頭髮 高光</a>
+                            </div>
+                            <div class="card-body p-0">
+                                <video class="videoIndex" src="image/AyDR5Q3CB6PplMXn.mp4" type="sample/mp4" controls autoplay muted loop>
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 card-space">
+                        <div class="card">
+                            <div class="card-header type1">
+                                <a href="https://forum.gamer.com.tw/C.php?bsn=31066&snA=16087">3D 模型 卡通 NPR 渲染 動作</a>
+                            </div>
+                            <div class="card-body p-0 text-center">
+                                <img class="gifIndex" src="image/giphy.gif">
+                                <img class="gifIndex" src="image/4CUpYkQ.gif">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 card-space">
+                        <div class="card">
+                            <div class="card-header type1">
+                                <a href="https://twitter.com/Retronous/status/1298599053488459776">3D 模型 卡通 NPR 渲染</a>
+                            </div>
+                            <div class="card-body p-0">
+                                <video class="videoIndex" src="image/EgWMxjXXYAArYhq.mp4" type="sample/mp4" controls autoplay muted loop>
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 card-space">
+                        <div class="card">
+                            <div class="card-header type1">
+                                <a href="https://www.facebook.com/LaevaZeinn/videos/10158847557446753/">3D 模型 卡通 NPR 渲染 動作</a>
+                            </div>
+                            <div class="card-body p-0">
+                                <video class="videoIndex" src="image/127637730.mp4" type="sample/mp4" controls autoplay muted loop>
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 card-space">
+                        <div class="card">
+                            <div class="card-header type1">
+                                <a href="https://twitter.com/itou_nko/status/1333019930745135105">3D 模型 卡通 渲染 比較</a>
+                            </div>
+                            <div class="card-body p-0 d-flex align-items-center">
+                                <img class="imageIndex" src="image/En_SiNMVoAAjmHK.jfif">
                             </div>
                         </div>
                     </div>
@@ -93,6 +159,45 @@
             </div>
         </div>
     </div>
+    <script>
+    function FindTag() {
+        var c = $(".card");
+        var str = document.getElementById("search").value;
+        if (str === "") {
+            ResetTag();
+            return;
+        }
+        SetSearchTag(str);
+        for (var i = c.length - 1; i >= 0; i--) {
+            c[i].style.display = "none";
+            if (c[i].innerText.search(str) <= -1) continue;
+            if (c[i].style.display === "none") {
+                c[i].style.display = "block";
+            }
+        }
+    }
+
+    function ResetTag() {
+        var c = $(".card");
+        SetSearchTag("無");
+        for (var i = c.length - 1; i >= 0; i--) {
+            c[i].style.display = "block";
+        }
+    }
+
+    function SetSearchTag(str) {
+        var text = "尋找的標籤 : "
+        $("#searchTag")[0].innerText = text + str;
+    }
+
+    var input = document.getElementById("search");
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("filter").click();
+        }
+    });
+    </script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
