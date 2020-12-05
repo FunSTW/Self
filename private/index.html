@@ -4,34 +4,90 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="images/icon.ico">
+    <link rel="shortcut icon" href="../images/icon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>筆記</title>
     <!--20201027-->
+    <style type="text/css">
+    * {
+        font-family: 'Noto Sans TC', '微軟正黑體', sans-serif;
+        color: white;
+    }
+
+    body,
+    html {
+        height: 100%;
+        font-size: 100%;
+        background-color: black;
+    }
+
+    hr{
+        border-top: 1px solid white;
+    }
+    </style>
+    <script>
+        function FindTag() {
+            var c = $(".card");
+            var str = document.getElementById("search").value;
+            if(str === "") return;
+            SetSearchTag(str);
+            for (var i = c.length - 1; i >= 0; i--) {
+                c[i].style.display = "none";
+                if(c[i].innerText.search(str) <= -1) continue;
+                if (c[i].style.display === "none") {
+                    c[i].style.display = "block";
+                }
+            }
+        }
+        function ResetTag() {
+            var c = $(".card");
+            $("#search")[0].value = "";
+            SetSearchTag("無");
+            for (var i = c.length - 1; i >= 0; i--) {
+                c[i].style.display = "block";
+            }
+        }
+        function SetSearchTag(str) {
+            var text = "尋找的標籤 : "
+            $("#searchTag")[0].innerText = text + str;
+        }
+    </script>
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="row">
+            <div class="col-12 h1 text-center">
+                文翰 の Idea 圖庫
+            </div>
             <div class="col-2">
+                <div class="form-group">
+                    <p id="searchTag">尋找的標籤 : 無</p>
+                    <input type="text" class="form-control" placeholder="找 Tag" id="search">
+                    <button class="btn btn-light" onclick="FindTag()">篩選</button>
+                    <button class="btn btn-light" onclick="ResetTag()">重置</button>
+                    <hr>
+                    <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Regular_Expressions">用 JavaScript 正規表示式</a>
+                </div>
             </div>
             <div class="col-10">
-                <div class="card">
-                    <div class="card-header">
-                        <a href="https://twitter.com/mozuya_/status/1334476700558581761">卡通著色 變形 朝向攝影機</a>
-                    </div>
-                    <div class="card-body">
-                        <video autoplay>
-                            <source src="video/ToonFaceCamera.mp4" type="video/mp4">
-                        </video>
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-4 p-0">
+                        <div class="card">
+                            <div class="card-header">
+                                <a href="https://twitter.com/mozuya_/status/1334476700558581761">3D 卡通渲染 面部變形 朝向攝影機</a>
+                            </div>
+                            <div class="card-body p-0">
+                                <video style="width: 100%; height: auto;" src="video/ToonFaceCamera.mp4" type="sample/mp4" controls autoplay muted loop>
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <footer class="footer text-center small hidePrint pt-3">
-        PAGE Designed by Ku,Wen-Han © <i>last update 2020.11</i>
-    </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
