@@ -39,8 +39,8 @@
     }
 
     .gifIndex {
-        width: auto;
-        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
     }
 
     .card-header {
@@ -71,49 +71,60 @@
             </div>
             <div class="col-12 col-lg-3">
                 <div class="form-group">
-                    <p id="searchTag">尋找的標籤 : 無</p>
-                    <input type="text" class="form-control" placeholder="找 Tag" id="search" autocomplete="off">
-                    <button id="filter" class="btn btn-light" onclick="FindTag()">篩選</button>
-                    <button class="btn btn-light" onclick="ResetTag()">重置</button>
+                    <hr>
+                    <p class="m-0">標籤 : <span id="searchTag">無</span></p>
+                    <div class="text-right my-1">
+                        <input type="text" class="form-control form-control-sm my-1" placeholder="找 Tag" id="search" autocomplete="off">
+                        <button id="filter" class="btn btn-sm btn-primary" onclick="FindTag()">篩選</button>
+                        <button class="btn btn-sm btn-secondary" onclick="ResetTag()">全部重置</button>
+                        <button class="btn btn-sm btn-light" onclick="HideAll()">全部隱藏</button>
+                    </div>
+                    <div class="text-center my-1">
+                        <button class="btn btn-sm btn-light" onclick="PlayAll(true)">播放</button>
+                        <button class="btn btn-sm btn-light" onclick="PlayAll(false)">停止</button>
+                    </div>
                     <hr>
                     <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Regular_Expressions">JavaScript 正規表示式</a>
-                    <hr>
-                    待找素材:
+                    <br />待找素材:
                     <li>臉部normal陰影補光參考</li>
                     <li>鉛筆筆觸NPR參考</li>
                     <li>PostProcessing效果參考</li>
+                    <hr>
                 </div>
             </div>
             <div class="col-12 col-lg-9">
                 <div class="row">
+                    <!--////////////////////-->
                     <div class="col-12 col-md-6 col-lg-4 card-space">
                         <div class="card">
                             <div class="card-header type1">
-                                <a href="https://twitter.com/mozuya_/status/1334476700558581761">3D 模型 卡通 NPR 渲染 面部變形 動作</a>
+                                <a href="https://twitter.com/mozuya_/status/1334476700558581761" target="_blank">3D 模型 卡通 NPR 渲染 面部變形 動作</a>
                             </div>
                             <div class="card-body p-0">
-                                <video class="videoIndex" src="image/ToonFaceCamera.mp4" type="sample/mp4" controls autoplay muted loop>
+                                <video class="videoIndex" src="image/ToonFaceCamera.mp4" type="sample/mp4" controls muted loop>
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                         </div>
                     </div>
+                    <!--////////////////////-->
                     <div class="col-12 col-md-6 col-lg-4 card-space">
                         <div class="card">
                             <div class="card-header type1">
-                                <a href="https://twitter.com/pale_c498/status/1300431896984182788">3D 模型 卡通 NPR 渲染 頭髮 高光</a>
+                                <a href="https://twitter.com/pale_c498/status/1300431896984182788" target="_blank">3D 模型 卡通 NPR 渲染 頭髮 高光</a>
                             </div>
                             <div class="card-body p-0">
-                                <video class="videoIndex" src="image/AyDR5Q3CB6PplMXn.mp4" type="sample/mp4" controls autoplay muted loop>
+                                <video class="videoIndex" src="image/AyDR5Q3CB6PplMXn.mp4" type="sample/mp4" controls muted loop>
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                         </div>
                     </div>
+                    <!--////////////////////-->
                     <div class="col-12 col-md-6 col-lg-4 card-space">
                         <div class="card">
                             <div class="card-header type1">
-                                <a href="https://forum.gamer.com.tw/C.php?bsn=31066&snA=16087">3D 模型 卡通 NPR 渲染 動作</a>
+                                <a href="https://forum.gamer.com.tw/C.php?bsn=31066&snA=16087" target="_blank">3D 模型 卡通 NPR 渲染 動作</a>
                             </div>
                             <div class="card-body p-0 text-center">
                                 <img class="gifIndex" src="image/giphy.gif">
@@ -121,40 +132,71 @@
                             </div>
                         </div>
                     </div>
+                    <!--////////////////////-->
                     <div class="col-12 col-md-6 col-lg-4 card-space">
                         <div class="card">
                             <div class="card-header type1">
-                                <a href="https://twitter.com/Retronous/status/1298599053488459776">3D 模型 卡通 NPR 渲染</a>
+                                <a href="https://twitter.com/Retronous/status/1298599053488459776" target="_blank">3D 模型 卡通 NPR 渲染</a>
                             </div>
                             <div class="card-body p-0">
-                                <video class="videoIndex" src="image/EgWMxjXXYAArYhq.mp4" type="sample/mp4" controls autoplay muted loop>
+                                <video class="videoIndex" src="image/EgWMxjXXYAArYhq.mp4" type="sample/mp4" controls muted loop>
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                         </div>
                     </div>
+                    <!--////////////////////-->
                     <div class="col-12 col-md-6 col-lg-4 card-space">
                         <div class="card">
                             <div class="card-header type1">
-                                <a href="https://www.facebook.com/LaevaZeinn/videos/10158847557446753/">3D 模型 卡通 NPR 渲染 動作</a>
+                                <a href="https://www.facebook.com/LaevaZeinn/videos/10158847557446753/" target="_blank">3D 模型 卡通 NPR 渲染 動作</a>
                             </div>
                             <div class="card-body p-0">
-                                <video class="videoIndex" src="image/127637730.mp4" type="sample/mp4" controls autoplay muted loop>
+                                <video class="videoIndex" src="image/127637730.mp4" type="sample/mp4" controls muted loop>
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                         </div>
                     </div>
+                    <!--////////////////////-->
                     <div class="col-12 col-md-6 col-lg-4 card-space">
                         <div class="card">
                             <div class="card-header type1">
-                                <a href="https://twitter.com/itou_nko/status/1333019930745135105">3D 模型 卡通 渲染 比較</a>
+                                <a href="https://twitter.com/itou_nko/status/1333019930745135105" target="_blank">3D 模型 卡通 NPR PBR 渲染 比較</a>
                             </div>
                             <div class="card-body p-0 d-flex align-items-center">
                                 <img class="imageIndex" src="image/En_SiNMVoAAjmHK.jfif">
                             </div>
                         </div>
                     </div>
+                    <!--////////////////////-->
+                    <div class="col-12 col-md-6 col-lg-4 card-space">
+                        <div class="card">
+                            <div class="card-header type1">
+                                <a href="https://muro.fanbox.cc/posts/1630424?utm_campaign=manage_post_page" target="_blank">3D 模型 卡通 NPR 渲染 眼睛 瞳孔 動作</a>
+                            </div>
+                            <div class="card-body p-0 d-flex align-items-center">
+                                <div>
+                                    <img class="gifIndex" src="image/ymNvoizNKyYPqvusTd0i7TxH.gif">
+                                    <img class="gifIndex" src="image/Ry3kWmrOV87bn9Z8WYm9L3Tt.gif">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--////////////////////-->
+                    <div class="col-12 col-md-6 col-lg-4 card-space">
+                        <div class="card">
+                            <div class="card-header type1">
+                                <a href="https://twitter.com/zetuZT/media" target="_blank">3D 模型 卡通 NPR 渲染 動作 分鏡 特效 場景</a>
+                            </div>
+                            <div class="card-body p-0">
+                                <video class="videoIndex" src="image/S8mcbbFgd_DsGKLH.mp4" type="sample/mp4" controls muted loop>
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <!--////////////////////-->
                 </div>
             </div>
         </div>
@@ -179,15 +221,34 @@
 
     function ResetTag() {
         var c = $(".card");
-        SetSearchTag("無");
+        SetSearchTag();
         for (var i = c.length - 1; i >= 0; i--) {
             c[i].style.display = "block";
         }
     }
 
+    function HideAll() {
+        SetSearchTag();
+        var c = $(".card");
+        for (var i = c.length - 1; i >= 0; i--) {
+            c[i].style.display = "none";
+        }
+    }
+
+    function PlayAll(b) {
+        var v = $('.videoIndex');
+        for (var i = v.length - 1; i >= 0; i--) {
+            if (b) {
+                v[i].play();
+            } else {
+                v[i].pause();
+            }
+        }
+    }
+
     function SetSearchTag(str) {
-        var text = "尋找的標籤 : "
-        $("#searchTag")[0].innerText = text + str;
+        if (str === undefined) str = '無';
+        $("#searchTag")[0].innerText = str;
     }
 
     var input = document.getElementById("search");
