@@ -72,30 +72,31 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid py-3">
         <div class="row">
-            <div class="col-12 h1 text-center">
+            <div class="col-12 text-center">
                 文翰 の 圖學 Idea 圖庫
             </div>
-            <div class="col-12 col-lg-3">
-                <div class="form-group">
-                    <hr>
-                    <p class="m-0">標籤 : <span id="searchTag">無</span></p>
-                    <div class="text-right my-1">
-                        <input type="text" class="form-control form-control-sm my-1" placeholder="找 Tag" id="search" autocomplete="off">
-                        <button id="filter" class="btn btn-sm btn-primary" onclick="FindTag()">篩選</button>
-                        <button class="btn btn-sm btn-secondary" onclick="ResetTag()">全部重置</button>
-                        <button class="btn btn-sm btn-light" onclick="HideAll()">全部隱藏</button>
-                    </div>
-                    <div class="text-center my-1">
-                        <button class="btn btn-sm btn-light" onclick="PlayAll(true)">播放</button>
-                        <button class="btn btn-sm btn-light" onclick="PlayAll(false)">停止</button>
-                    </div>
+            <div class="col-12 col-lg-3 order-lg-12">
+                <hr>
+                <p class="m-0">標籤 : <span id="searchTag">無</span></p>
+                <div class="text-right my-1">
+                    <input type="text" class="form-control form-control-sm my-1" placeholder="找 Tag" id="search" autocomplete="off">
+                    <button id="filter" class="btn btn-sm btn-primary" onclick="FindTag()">篩選</button>
+                    <button class="btn btn-sm btn-secondary" onclick="ResetTag()">全部重置</button>
+                    <button class="btn btn-sm btn-light" onclick="HideAll()">全部隱藏</button>
+                </div>
+                <div class="my-1">
                     <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Regular_Expressions">JavaScript 正規表示式</a>
                     <li>A 和 B (?=.*A.*)(?=.*B.*).*</li>
                     <li>A 或 B A|B</li>
-                    <hr>
                 </div>
+                <hr>
+                <div class="text-center my-1">
+                    <button class="btn btn-sm btn-light" onclick="PlayAll(true)">全部播放</button>
+                    <button class="btn btn-sm btn-light" onclick="PlayAll(false)">全部停止</button>
+                </div>
+                <hr>
             </div>
             <div class="col-12 row col-lg-9 m-0">
                 <div class="col-12 row p-0 m-0">
