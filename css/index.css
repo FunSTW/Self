@@ -126,6 +126,10 @@ ul.skill>li {
     margin-left: 10%;
 }
 
+li.star {
+  list-style-type: ' ★ ';
+}
+
 blockquote {
     border: 0px;
     font-weight: bolder !important;
