@@ -1,0 +1,91 @@
+<head>
+	<style type="text/css">
+		.title{
+			font-size: 150%;
+			font-weight:bold;
+		}
+	</style>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container mt-3">
+		<div class="row">
+			<div class="col-8">
+				<div id="sequence">
+					<span class="title">數列</span>
+					<button onclick="Sequence()">計算</button>
+					<input type="checkbox" class="round" checked>四捨五入
+					<br>
+					上限 : <input class="time" value="180">
+					切片 : <input class="num" value="8">
+				</div>
+				<hr>
+				<div id="A2V2">
+					<span class="title">各角度Vector2位置</span>
+					<button onclick="AngleToVector2()">計算</button>
+					<input type="checkbox" class="round" checked>四捨五入到三位
+					<br>
+					距離 : <input class="distance" value="1">
+					切片 : <input class="num" value="3">
+					Offset : <input class="offset" value="90">
+				</div>
+				<hr>
+			</div>
+			<div class="col-4">
+				<div class="row">
+					<button class="col-12 mb-2" onclick="Clear()">Clear</button>
+					<div class="col-12 p-2 border border-dark" id="output">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		var output = document.getElementById("output");
+		var Deg2Rad = 0.0174532925;
+		var Rad2Deg = 57.29578;
+		function Clear() {
+			output.innerHTML = '';
+		}
+		/*數列*/
+		function Sequence() {
+			var str = '';
+			var time = document.getElementById("sequence").getElementsByClassName("time")[0].value;
+			var num = document.getElementById("sequence").getElementsByClassName("num")[0].value;
+			var isRound = document.getElementById("sequence").getElementsByClassName("round")[0].checked;
+			for (var i = 0; i < num; i++) {
+				var n = time / num *i;
+				if(isRound === true){
+					n = Math.round(n);
+				}
+				str += i + ' : ' + n + '<br>';
+			}
+			output.innerHTML = str;
+		}
+		/*各角度Vector2位置*/
+		function AngleToVector2() {
+			var str = '';
+			var distance = document.getElementById("A2V2").getElementsByClassName("distance")[0].value;
+			var num = document.getElementById("A2V2").getElementsByClassName("num")[0].value;
+			var offset = document.getElementById("A2V2").getElementsByClassName("offset")[0].value;
+			var isRound = document.getElementById("A2V2").getElementsByClassName("round")[0].checked;
+			for (var i = 0; i < num; i++) {
+				var rad = (Math.PI*2) / num * i + ( offset * Deg2Rad ) ;
+				var x = Math.cos( rad ) * distance;
+				var y = Math.sin( rad ) * distance;
+				if(isRound === true){
+					x = Math.round(x*1000) / 1000;
+					y = Math.round(y*1000) / 1000;
+				}
+				var deg = Math.round( rad * Rad2Deg * 10000 ) / 10000;
+				deg %= 360;
+				str += i + ' : ' + deg + '°' + ' ( ' + x +' , '+ y + ' ) '+'<br>';
+			}
+			output.innerHTML = str;
+		}
+
+	</script>
+</body>
