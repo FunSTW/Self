@@ -54,7 +54,7 @@ h4 {
 
 .img_icon {
     transition: all 0.2s ease;
-    width: 40px;
+    width: 50px;
     height: auto;
 }
 
@@ -63,6 +63,20 @@ h4 {
 }
 
 .img_hover:hover {
+    filter: brightness(80%);
+}
+
+.img_icon_s {
+    transition: all 0.2s ease;
+    width: 30px;
+    height: auto;
+}
+
+.img_icon_s:hover {
+    filter: brightness(50%);
+}
+
+.img_icon_s:hover {
     filter: brightness(80%);
 }
 
