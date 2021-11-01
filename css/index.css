@@ -87,11 +87,15 @@ h4 {
 
 .card-header:hover {
     transition: all 0.2s ease;
-    background-color:rgba(0,0,0,.1);
+    background-color: rgba(0, 0, 0, .1);
 }
 
 .w-33 {
-    width: 30%!important;
+    width: 30% !important;
+}
+
+.showPrint {
+    display: none;
 }
 
 ul.timeline {
@@ -141,7 +145,7 @@ ul.skill>li {
 }
 
 li.star {
-  list-style-type: '★   ';
+    list-style-type: '★   ';
 }
 
 blockquote {
@@ -158,6 +162,15 @@ blockquote {
 
     .hidePrint {
         display: none;
+    }
+
+    .showPrint {
+        display: inline;
+    }
+
+    footer.footer {
+        position: fixed;
+        bottom: 0;
     }
 }
 
@@ -184,5 +197,3 @@ blockquote {
         margin-left: 10%;
     }
 }
-
-
