@@ -45,6 +45,22 @@ p {
     background-size: cover;
 }
 
+#HDRPVFXGraph {
+    background-image: url("../images/HDRPVFXGraphBG.jpg");
+    min-height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#Blender {
+    background-image: url("../images/BlenderBG.jpg");
+    min-height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #BehindTheSoundVR {
     background-image: url("../images/BehindTheSoundVRBG.jpg");
     min-height: 100%;
