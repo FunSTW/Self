@@ -17,8 +17,7 @@ button {
 }
 
 hr {
-	margin-top : 8px;
-	margin-bottom : 8px;
+	margin : 0px;
     border-top: 1px solid rgb(0, 150, 136);
 }
 

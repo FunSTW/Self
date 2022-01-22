@@ -45,14 +45,6 @@ p {
     background-size: cover;
 }
 
-#ElementLabOculusVR {
-    background-image: url("../images/ElementLabOculusVRBG.jpg");
-    min-height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 #HDRPVFXGraph {
     background-image: url("../images/HDRPVFXGraphBG.jpg");
     min-height: 100%;
