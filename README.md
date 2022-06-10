@@ -1,1 +1,1 @@
-This repo is for my resume, please ignore :D
+This repo is for my resume, pls ignore :D
