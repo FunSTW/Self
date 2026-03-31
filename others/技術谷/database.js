@@ -579,11 +579,6 @@
 				"id": "04382013"
 			},
 			{
-				"name": "幼黑格里芬",
-				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04384005.info_.iconRaw.png",
-				"id": "04384005"
-			},
-			{
 				"name": "紅獨角獅",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04383021.info_.iconRaw.png",
 				"id": "04383021"
