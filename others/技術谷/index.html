@@ -81,7 +81,7 @@
 
         .monster-grid { 
             display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); 
-            gap: 6px; 
+            gap: 2px; 
         }
         
         .monster-node { 
@@ -92,22 +92,48 @@
         .monster-img { width: 60%; height: 60%; object-fit: contain; transition: 0.3s; }
         .monster-name { font-size: 10px; margin-top: 6px; color: var(--light-gold); }
 
-        .monster-node.excluded { background: var(--card-bg); border-color: #252525; }
-        .monster-node.excluded .monster-img { filter: grayscale(100%) brightness(0.25); opacity: 0.25; }
-        .monster-node.excluded .monster-name { color: #444; }
-
+		.monster-node.excluded { 
+			background: var(--card-bg); 
+			border-color: #252525; 
+		}
+		.monster-node.excluded .monster-img { 
+			filter: grayscale(100%) brightness(0.25); 
+			opacity: 0.25; 
+		}
+		.monster-node.excluded .monster-name { 
+			color: #444; 
+		}
+		
 		.grid-break {
-			grid-column: auto; /* 預設不橫跨整列 */
+			grid-column: auto;
 			height: 0;
 			margin: 0;
 			visibility: hidden;
-			display: none; /* 預設隱藏，不佔位 */
+			display: none;
 		}
 		
-		/* 新增：當 body 有 enable-newline 時，換行才生效 */
+		.monster-node { 
+			display: flex; 
+		}
+		
 		body.enable-newline .grid-break {
-			display: block; /* 顯示出來 */
-			grid-column: 1 / -1; /* 橫跨整列達成換行 */
+			display: block;
+			grid-column: 1 / -1;
+		}
+		
+		body.hide-collected .monster-node.excluded {
+			display: none;
+		}
+		
+		/* 確保同時開啟兩個功能時，換行依然生效 */
+		body.hide-collected.enable-newline .grid-break {
+			display: block;
+			grid-column: 1 / -1;
+		}
+		
+		/* 只有在「沒開自動換行」且「開啟隱藏」時才徹底不佔位 */
+		body.hide-collected:not(.enable-newline) .grid-break {
+			display: none;
 		}
     </style>
 </head>
@@ -128,6 +154,7 @@
 		<button class="btn" onclick="setAll(false)">全部已蒐集</button>
 		<button class="btn" onclick="setAll(true)">全部未蒐集</button>
 		<button class="btn" id="newlineBtn" onclick="toggleNewline()">自動換行：關</button>
+		<button class="btn" id="hideCollectedBtn" onclick="toggleHideCollected()">隱藏已蒐集：關</button>
 	</div>
 	
 	<div class="hint">
@@ -312,6 +339,20 @@
 		}
 	}
 	
+	function toggleHideCollected() {
+		const isHidden = document.body.classList.toggle('hide-collected');
+		updateHideUI(isHidden);
+		setCookie('monster_hide', isHidden ? '1' : '0', 365);
+	}
+	
+	function updateHideUI(isHidden) {
+		const btn = document.getElementById('hideCollectedBtn');
+		if (btn) {
+			// 文字改為「僅顯示已蒐集」，開啟時畫面上只會剩下亮著的怪物
+			btn.innerText = `僅顯示已蒐集：${isHidden ? '開' : '關'}`;
+			btn.style.borderColor = isHidden ? '#55ff55' : 'var(--gold)';
+		}
+	}
 	// --- 修改原本的 init 函數，加入讀取設定的邏輯 ---
 	function init() {
 		if (typeof RAW_DATA === 'undefined') return;
@@ -323,6 +364,11 @@
 			document.body.classList.add('enable-newline');
 		}
 		updateNewlineUI(isNewlineEnabled);
+		
+		const hideCookie = getCookie('monster_hide');
+		const isHideEnabled = hideCookie === '1';
+		if (isHideEnabled) document.body.classList.add('hide-collected');
+		updateHideUI(isHideEnabled);
 	
 		let itemOffset = 0;
 		flatRegistry = [];
