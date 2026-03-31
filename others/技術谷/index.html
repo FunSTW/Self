@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>怪物蒐集 - 精簡存檔版</title>
+    <title>怪物蒐集</title>
     <style>
         :root { 
             --bg: #0f0f0f; 
@@ -35,7 +35,7 @@
             margin-bottom: 20px; border-radius: 8px; display: flex;
             flex-direction: column; gap: 10px; align-items: center;
         }
-        .mask-input-group { display: flex; gap: 5px; width: 100%; max-width: 70vw; }
+        .mask-input-group { display: flex; gap: 5px; width: 100%; max-width: 80vw; min-width: 500px; }
         .mask-input {
             flex: 1; background: #000; border: 1px solid var(--gold);
             color: var(--light-gold); padding: 8px 10px; font-family: monospace;
@@ -102,7 +102,7 @@
     <h1>技術谷 怪物蒐集</h1>
 
     <div class="mask-manager">
-        <div style="font-size: 12px; color: var(--gold);">當前存檔代碼</div>
+        <div style="font-size: 16px; color: var(--gold);">目前存檔代碼 ( 可以複製分享給別人 )</div>
         <div class="mask-input-group">
             <input type="text" id="maskInput" class="mask-input" placeholder="代碼自動更新中...">
             <button class="btn" onclick="copyMask()" style="padding: 5px 12px;">複製</button>
@@ -116,7 +116,7 @@
     </div>
 	
 	<div class="hint">
-        <b>Ctrl+Z</b> 復原   |   <b>Ctrl+Y</b> 重做   |   <b>Ctrl+S</b> 儲存
+        <b>Ctrl+Z</b> 復原 | <b>Ctrl+Y</b> 重做 | <b>Ctrl+S</b> 儲存
     </div>
 
     <div class="container">
@@ -266,26 +266,21 @@
     });
 
 	function copyMask() {
-		const code = document.getElementById('maskInput').value;
-		if (!code) return;
-	
-		// 合成完整網址 (目前的網址路徑 + ?m=代碼)
-		const shareUrl = window.location.origin + window.location.pathname + "?m=" + code;
+		const input = document.getElementById('maskInput');
+		
+		// 選取文字
+		input.select();
+		input.setSelectionRange(0, 99999); // 支援行動裝置
 	
 		// 執行複製
 		if (navigator.clipboard && navigator.clipboard.writeText) {
-			navigator.clipboard.writeText(shareUrl);
+			navigator.clipboard.writeText(input.value);
 		} else {
-			// 備用方案：建立暫時輸入框進行複製
-			const tempInput = document.createElement("input");
-			tempInput.value = shareUrl;
-			document.body.appendChild(tempInput);
-			tempInput.select();
-			document.execCommand("copy");
-			document.body.removeChild(tempInput);
+			// 備用方案
+			document.execCommand('copy');
 		}
 	}
-	
+
 	function init() {
         if (typeof RAW_DATA === 'undefined') return;
         let itemOffset = 0;
