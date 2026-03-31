@@ -349,7 +349,7 @@
 		const btn = document.getElementById('hideCollectedBtn');
 		if (btn) {
 			// 文字改為「僅顯示已蒐集」，開啟時畫面上只會剩下亮著的怪物
-			btn.innerText = `僅顯示已蒐集：${isHidden ? '開' : '關'}`;
+			btn.innerText = `僅顯示未蒐集：${isHidden ? '開' : '關'}`;
 			btn.style.borderColor = isHidden ? '#55ff55' : 'var(--gold)';
 		}
 	}
