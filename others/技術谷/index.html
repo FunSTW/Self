@@ -266,18 +266,23 @@
     });
 
 	function copyMask() {
-		const input = document.getElementById('maskInput');
-		
-		// 選取文字
-		input.select();
-		input.setSelectionRange(0, 99999); // 支援行動裝置
+		const code = document.getElementById('maskInput').value;
+		if (!code) return;
+	
+		// 合成完整網址 (目前的網址路徑 + ?m=代碼)
+		const shareUrl = window.location.origin + window.location.pathname + "?m=" + code;
 	
 		// 執行複製
 		if (navigator.clipboard && navigator.clipboard.writeText) {
-			navigator.clipboard.writeText(input.value);
+			navigator.clipboard.writeText(shareUrl);
 		} else {
-			// 備用方案
-			document.execCommand('copy');
+			// 備用方案：建立暫時輸入框進行複製
+			const tempInput = document.createElement("input");
+			tempInput.value = shareUrl;
+			document.body.appendChild(tempInput);
+			tempInput.select();
+			document.execCommand("copy");
+			document.body.removeChild(tempInput);
 		}
 	}
 
@@ -317,6 +322,23 @@
         const initialState = unpack(m, flatRegistry.length);
         applyState(initialState, true);
         historyStack.push(initialState);
+		
+		const urlParams = new URLSearchParams(window.location.search);
+		const urlMask = urlParams.get('m');
+		const cookieMask = getCookie('monster_mask');
+		
+		const m = urlMask || cookieMask;
+		
+		// 2. 套用初始狀態
+		const initialState = unpack(m, flatRegistry.length);
+		applyState(initialState, true);
+		historyStack.push(initialState);
+	
+		// 3. 關鍵修正：如果網址上有參數，讀取完後立即「隱藏」它
+		if (urlMask) {
+			const cleanUrl = window.location.origin + window.location.pathname;
+			window.history.replaceState({}, document.title, cleanUrl);
+		}
     }
 
     window.onload = init;
