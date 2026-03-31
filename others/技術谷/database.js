@@ -1195,7 +1195,7 @@
 			},
 			{
 				"name": "船員克魯",
-				"img": "https://oldprobb.wp-content/uploads/2026/01/04384017.info_.iconRaw.png",
+				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04384017.info_.iconRaw.png",
 				"id": "04384017"
 			},
 			{
