@@ -285,11 +285,12 @@
 			document.body.removeChild(tempInput);
 		}
 	}
-
-    function init() {
+	
+	function init() {
         if (typeof RAW_DATA === 'undefined') return;
         let itemOffset = 0;
         flatRegistry = [];
+        gridEl.innerHTML = ''; // 確保重新初始化時清空容器
 
         RAW_DATA.forEach(reg => {
             const header = document.createElement('div');
@@ -318,27 +319,23 @@
             });
         });
 
-        const m = getCookie('monster_mask') || new URLSearchParams(window.location.search).get('m');
+        // --- 核心邏輯：讀取並清理 URL ---
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlMask = urlParams.get('m');
+        const cookieMask = getCookie('monster_mask');
+        
+        // 優先權：URL 參數 > Cookie (這樣點別人的連結才會生效)
+        const m = urlMask || cookieMask;
+        
         const initialState = unpack(m, flatRegistry.length);
         applyState(initialState, true);
         historyStack.push(initialState);
-		
-		const urlParams = new URLSearchParams(window.location.search);
-		const urlMask = urlParams.get('m');
-		const cookieMask = getCookie('monster_mask');
-		
-		const m = urlMask || cookieMask;
-		
-		// 2. 套用初始狀態
-		const initialState = unpack(m, flatRegistry.length);
-		applyState(initialState, true);
-		historyStack.push(initialState);
-	
-		// 3. 關鍵修正：如果網址上有參數，讀取完後立即「隱藏」它
-		if (urlMask) {
-			const cleanUrl = window.location.origin + window.location.pathname;
-			window.history.replaceState({}, document.title, cleanUrl);
-		}
+
+        // 如果是從 URL 載入的，載入後立即把網址後面的 ?m=... 拿掉，不重整頁面
+        if (urlMask) {
+            const cleanUrl = window.location.origin + window.location.pathname;
+            window.history.replaceState({}, document.title, cleanUrl);
+        }
     }
 
     window.onload = init;
