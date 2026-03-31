@@ -95,6 +95,20 @@
         .monster-node.excluded { background: var(--card-bg); border-color: #252525; }
         .monster-node.excluded .monster-img { filter: grayscale(100%) brightness(0.25); opacity: 0.25; }
         .monster-node.excluded .monster-name { color: #444; }
+
+		.grid-break {
+			grid-column: auto; /* 預設不橫跨整列 */
+			height: 0;
+			margin: 0;
+			visibility: hidden;
+			display: none; /* 預設隱藏，不佔位 */
+		}
+		
+		/* 新增：當 body 有 enable-newline 時，換行才生效 */
+		body.enable-newline .grid-break {
+			display: block; /* 顯示出來 */
+			grid-column: 1 / -1; /* 橫跨整列達成換行 */
+		}
     </style>
 </head>
 <body>
@@ -110,10 +124,11 @@
         </div>
     </div>
     
-    <div class="controls">
-        <button class="btn" onclick="setAll(false)">全部已蒐集</button>
-        <button class="btn" onclick="setAll(true)">全部未蒐集</button>
-    </div>
+	<div class="controls">
+		<button class="btn" onclick="setAll(false)">全部已蒐集</button>
+		<button class="btn" onclick="setAll(true)">全部未蒐集</button>
+		<button class="btn" id="newlineBtn" onclick="toggleNewline()">自動換行：關</button>
+	</div>
 	
 	<div class="hint">
         <b>Ctrl+Z</b> 復原 | <b>Ctrl+Y</b> 重做 | <b>Ctrl+S</b> 儲存
@@ -281,57 +296,91 @@
 		}
 	}
 
+	function toggleNewline() {
+		const isEnabled = document.body.classList.toggle('enable-newline');
+		updateNewlineUI(isEnabled);
+		// 存入 Cookie (存 365 天)
+		setCookie('monster_newline', isEnabled ? '1' : '0', 365);
+	}
+	
+	function updateNewlineUI(isEnabled) {
+		const btn = document.getElementById('newlineBtn');
+		if (btn) {
+			btn.innerText = `自動換行：${isEnabled ? '開' : '關'}`;
+			// 選項：開啟時可以換顏色區分
+			btn.style.borderColor = isEnabled ? '#55ff55' : 'var(--gold)';
+		}
+	}
+	
+	// --- 修改原本的 init 函數，加入讀取設定的邏輯 ---
 	function init() {
-        if (typeof RAW_DATA === 'undefined') return;
-        let itemOffset = 0;
-        flatRegistry = [];
-        gridEl.innerHTML = ''; // 確保重新初始化時清空容器
-
-        RAW_DATA.forEach(reg => {
-            const header = document.createElement('div');
-            header.className = 'region-header';
-            const startIndex = itemOffset;
-            const count = reg.items.length;
-            header.innerHTML = `
-                <span>${reg.region}</span>
-                <div class="region-controls">
-                    <button class="btn-sm" onclick="setRegionState(${startIndex}, ${count}, false)">全開</button>
-                    <button class="btn-sm" onclick="setRegionState(${startIndex}, ${count}, true)">全關</button>
-                </div>
-            `;
-            gridEl.appendChild(header);
-
-            reg.items.forEach(item => {
-                const idx = flatRegistry.length;
-                flatRegistry.push(item);
-                const node = document.createElement('div');
-                node.className = 'monster-node';
-                node.id = `n-${idx}`;
-                node.innerHTML = `<img src="${item.img}" class="monster-img"><div class="monster-name">${item.name}</div>`;
-                node.onclick = () => toggleNode(idx);
-                gridEl.appendChild(node);
-                itemOffset++;
-            });
-        });
-
-        // --- 核心邏輯：讀取並清理 URL ---
-        const urlParams = new URLSearchParams(window.location.search);
-        const urlMask = urlParams.get('m');
-        const cookieMask = getCookie('monster_mask');
-        
-        // 優先權：URL 參數 > Cookie (這樣點別人的連結才會生效)
-        const m = urlMask || cookieMask;
-        
-        const initialState = unpack(m, flatRegistry.length);
-        applyState(initialState, true);
-        historyStack.push(initialState);
-
-        // 如果是從 URL 載入的，載入後立即把網址後面的 ?m=... 拿掉，不重整頁面
-        if (urlMask) {
-            const cleanUrl = window.location.origin + window.location.pathname;
-            window.history.replaceState({}, document.title, cleanUrl);
-        }
-    }
+		if (typeof RAW_DATA === 'undefined') return;
+		
+		// [新增] 讀取換行設定
+		const newlineCookie = getCookie('monster_newline');
+		const isNewlineEnabled = newlineCookie === '1'; // 預設為關 (0)
+		if (isNewlineEnabled) {
+			document.body.classList.add('enable-newline');
+		}
+		updateNewlineUI(isNewlineEnabled);
+	
+		let itemOffset = 0;
+		flatRegistry = [];
+		gridEl.innerHTML = ''; 
+	
+		RAW_DATA.forEach(reg => {
+			// ... (這部分維持你原本生成 header 的程式碼)
+			const header = document.createElement('div');
+			header.className = 'region-header';
+			const startIndex = itemOffset;
+			const count = reg.items.length;
+			header.innerHTML = `
+				<span>${reg.region}</span>
+				<div class="region-controls">
+					<button class="btn-sm" onclick="setRegionState(${startIndex}, ${count}, false)">全開</button>
+					<button class="btn-sm" onclick="setRegionState(${startIndex}, ${count}, true)">全關</button>
+				</div>
+			`;
+			gridEl.appendChild(header);
+	
+			reg.items.forEach(item => {
+				const idx = flatRegistry.length;
+				flatRegistry.push(item);
+				
+				const node = document.createElement('div');
+				node.className = 'monster-node';
+				node.id = `n-${idx}`;
+				node.innerHTML = `
+					<img src="${item.img}" class="monster-img">
+					<div class="monster-name">${item.name}</div>
+				`;
+				node.onclick = () => toggleNode(idx);
+				gridEl.appendChild(node);
+				itemOffset++;
+			
+				if (item.newline === true) {
+					const breakEl = document.createElement('div');
+					breakEl.className = 'grid-break';
+					gridEl.appendChild(breakEl);
+				}
+			});
+		});
+	
+		// ... (這部分維持原本的 URL/Cookie Mask 載入邏輯)
+		const urlParams = new URLSearchParams(window.location.search);
+		const urlMask = urlParams.get('m');
+		const cookieMask = getCookie('monster_mask');
+		const m = urlMask || cookieMask;
+		
+		const initialState = unpack(m, flatRegistry.length);
+		applyState(initialState, true);
+		historyStack.push(initialState);
+	
+		if (urlMask) {
+			const cleanUrl = window.location.origin + window.location.pathname;
+			window.history.replaceState({}, document.title, cleanUrl);
+		}
+	}
 
     window.onload = init;
 </script>

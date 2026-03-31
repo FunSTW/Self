@@ -1,4 +1,3 @@
-   // 資料填寫區：支援多地區格式
     const RAW_DATA = [
 	{
 		"region": "維多利亞島",
@@ -16,7 +15,8 @@
 			{
 				"name": "紅寶",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04380004.info_.iconRaw.png",
-				"id": "04380004"
+				"id": "04380004",
+				"newline": true
 			},
 			{
 				"name": "菇菇寶貝",
@@ -41,7 +41,8 @@
 			{
 				"name": "殭屍菇菇",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04381016.info_.iconRaw.png",
-				"id": "04381016"
+				"id": "04381016",
+				"newline": true
 			},
 			{
 				"name": "木妖",
@@ -66,7 +67,8 @@
 			{
 				"name": "黑斧木妖",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04381008.info_.iconRaw.png",
-				"id": "04381008"
+				"id": "04381008",
+				"newline": true
 			},
 			{
 				"name": "肥肥",
@@ -96,7 +98,8 @@
 			{
 				"name": "鋼之黑肥肥",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04382069.info_.iconRaw.png",
-				"id": "04382069"
+				"id": "04382069",
+				"newline": true
 			},
 			{
 				"name": "藍水靈",
@@ -116,7 +119,8 @@
 			{
 				"name": "大幽靈",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04383008.info_.iconRaw.png",
-				"id": "04383008"
+				"id": "04383008",
+				"newline": true
 			},
 			{
 				"name": "綠水靈",
@@ -136,7 +140,8 @@
 			{
 				"name": "巫婆",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04383029.info_.iconRaw.png",
-				"id": "04383029"
+				"id": "04383029",
+				"newline": true
 			},
 			{
 				"name": "三眼章魚",
@@ -156,7 +161,8 @@
 			{
 				"name": "黑鱷魚",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04383019.info_.iconRaw.png",
-				"id": "04383019"
+				"id": "04383019",
+				"newline": true
 			},
 			{
 				"name": "木面怪人",
@@ -176,7 +182,8 @@
 			{
 				"name": "天使猴",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04382040.info_.iconRaw.png",
-				"id": "04382040"
+				"id": "04382040",
+				"newline": true
 			},
 			{
 				"name": "木乃伊犬",
@@ -201,7 +208,8 @@
 			{
 				"name": "骷髏指揮官",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04384029.info_.iconRaw.png",
-				"id": "04384029"
+				"id": "04384029",
+				"newline": true
 			},
 			{
 				"name": "火獨眼獸",
@@ -216,7 +224,8 @@
 			{
 				"name": "冰獨眼獸",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04382039.info_.iconRaw.png",
-				"id": "04382039"
+				"id": "04382039",
+				"newline": true
 			},
 			{
 				"name": "紅螃蟹",
@@ -231,7 +240,8 @@
 			{
 				"name": "青螃蟹",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04383009.info_.iconRaw.png",
-				"id": "04383009"
+				"id": "04383009",
+				"newline": true
 			},
 			{
 				"name": "土龍",
@@ -261,7 +271,8 @@
 			{
 				"name": "黑龍",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04384015.info_.iconRaw.png",
-				"id": "04384015"
+				"id": "04384015",
+				"newline": true
 			},
 			{
 				"name": "月牙牛魔王",
@@ -311,7 +322,8 @@
 			{
 				"name": "黑綿羊",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04382080.info_.iconRaw.png",
-				"id": "04382080"
+				"id": "04382080",
+				"newline": true
 			},
 			{
 				"name": "鬥雞",
@@ -331,7 +343,8 @@
 			{
 				"name": "犁杖牛",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04382079.info_.iconRaw.png",
-				"id": "04382079"
+				"id": "04382079",
+				"newline": true
 			},
 			{
 				"name": "草莓珍奶",
@@ -346,7 +359,8 @@
 			{
 				"name": "抹茶珍奶",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04382085.info_.iconRaw.png",
-				"id": "04382085"
+				"id": "04382085",
+				"newline": true
 			},
 			{
 				"name": "雪吉拉娃娃機",
@@ -371,7 +385,8 @@
 			{
 				"name": "小企鵝王玩偶",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04382082.info_.iconRaw.png",
-				"id": "04382082"
+				"id": "04382082",
+				"newline": true
 			},
 			{
 				"name": "小狗仔",
@@ -396,7 +411,8 @@
 			{
 				"name": "飆車猴",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04383060.info_.iconRaw.png",
-				"id": "04383060"
+				"id": "04383060",
+				"newline": true
 			},
 			{
 				"name": "甜心香水",
@@ -411,7 +427,8 @@
 			{
 				"name": "百花香水",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04384046.info_.iconRaw.png",
-				"id": "04384046"
+				"id": "04384046",
+				"newline": true
 			},
 			{
 				"name": "魔法音響",
@@ -426,7 +443,8 @@
 			{
 				"name": "魔幻電音",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04384049.info_.iconRaw.png",
-				"id": "04384049"
+				"id": "04384049",
+				"newline": true
 			},
 			{
 				"name": "鬼兔妮",
@@ -441,7 +459,8 @@
 			{
 				"name": "人偶傑克",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04385030.info_.iconRaw.png",
-				"id": "04385030"
+				"id": "04385030",
+				"newline": true
 			},
 			{
 				"name": "烏鴉",
@@ -461,7 +480,8 @@
 			{
 				"name": "雪狐",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04382073.info_.iconRaw.png",
-				"id": "04382073"
+				"id": "04382073",
+				"newline": true
 			},
 			{
 				"name": "下忍",
@@ -486,7 +506,8 @@
 			{
 				"name": "忍者頭目",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04386020.info_.iconRaw.png",
-				"id": "04386020"
+				"id": "04386020",
+				"newline": true
 			},
 			{
 				"name": "不良少年",
@@ -516,7 +537,8 @@
 			{
 				"name": "扛壩子",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04384043.info_.iconRaw.png",
-				"id": "04384043"
+				"id": "04384043",
+				"newline": true
 			},
 			{
 				"name": "燈籠鬼",
@@ -561,7 +583,8 @@
 			{
 				"name": "火石球",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04381038.info_.iconRaw.png",
-				"id": "04381038"
+				"id": "04381038",
+				"newline": true
 			},
 			{
 				"name": "幼紅獨角獅",
@@ -576,7 +599,8 @@
 			{
 				"name": "幼藍獨角獅",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04382013.info_.iconRaw.png",
-				"id": "04382013"
+				"id": "04382013",
+				"newline": true
 			},
 			{
 				"name": "紅獨角獅",
@@ -596,7 +620,8 @@
 			{
 				"name": "黑格里芬",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04384030.info_.iconRaw.png",
-				"id": "04384030"
+				"id": "04384030",
+				"newline": true
 			},
 			{
 				"name": "星光精靈",
@@ -646,7 +671,8 @@
 			{
 				"name": "積木泥人王",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04382066.info_.iconRaw.png",
-				"id": "04382066"
+				"id": "04382066",
+				"newline": true
 			},
 			{
 				"name": "褐色發條熊",
@@ -661,7 +687,8 @@
 			{
 				"name": "發條貓熊",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04382025.info_.iconRaw.png",
-				"id": "04382025"
+				"id": "04382025",
+				"newline": true
 			},
 			{
 				"name": "白色發條鼠",
@@ -686,7 +713,8 @@
 			{
 				"name": "鼬鼠鬧鐘",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04382041.info_.iconRaw.png",
-				"id": "04382041"
+				"id": "04382041",
+				"newline": true
 			},
 			{
 				"name": "妖魔",
@@ -701,7 +729,8 @@
 			{
 				"name": "妖魔隊長",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04383002.info_.iconRaw.png",
-				"id": "04383002"
+				"id": "04383002",
+				"newline": true
 			},
 			{
 				"name": "機器章魚",
@@ -721,7 +750,8 @@
 			{
 				"name": "紅色機器人",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04382062.info_.iconRaw.png",
-				"id": "04382062"
+				"id": "04382062",
+				"newline": true
 			},
 			{
 				"name": "邱布",
@@ -736,7 +766,8 @@
 			{
 				"name": "藍色戰鬥機",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04382034.info_.iconRaw.png",
-				"id": "04382034"
+				"id": "04382034",
+				"newline": true
 			},
 			{
 				"name": "兔子鼓手",
@@ -781,7 +812,8 @@
 			{
 				"name": "成年仙人掌",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04381028.info_.iconRaw.png",
-				"id": "04381028"
+				"id": "04381028",
+				"newline": true
 			},
 			{
 				"name": "耳罩蜥蜴",
@@ -806,7 +838,8 @@
 			{
 				"name": "砂巨人",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04382046.info_.iconRaw.png",
-				"id": "04382046"
+				"id": "04382046",
+				"newline": true
 			},
 			{
 				"name": "沙漠蛇",
@@ -831,7 +864,8 @@
 			{
 				"name": "紅沙矮人",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04382010.info_.iconRaw.png",
-				"id": "04382010"
+				"id": "04382010",
+				"newline": true
 			},
 			{
 				"name": "鋼鐵穆太",
@@ -861,7 +895,8 @@
 			{
 				"name": "奈歐洛伊德",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04383042.info_.iconRaw.png",
-				"id": "04383042"
+				"id": "04383042",
+				"newline": true
 			},
 			{
 				"name": "黑妖苗",
@@ -911,7 +946,8 @@
 			{
 				"name": "黑色小雪球",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04383033.info_.iconRaw.png",
-				"id": "04383033"
+				"id": "04383033",
+				"newline": true
 			},
 			{
 				"name": "小企鵝王",
@@ -926,7 +962,8 @@
 			{
 				"name": "黑企鵝王",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04384007.info_.iconRaw.png",
-				"id": "04384007"
+				"id": "04384007",
+				"newline": true
 			},
 			{
 				"name": "野狼",
@@ -946,7 +983,8 @@
 			{
 				"name": "白狼人",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04385006.info_.iconRaw.png",
-				"id": "04385006"
+				"id": "04385006",
+				"newline": true
 			},
 			{
 				"name": "雪吉拉",
@@ -966,7 +1004,8 @@
 			{
 				"name": "黑吉拉戰車",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04385009.info_.iconRaw.png",
-				"id": "04385009"
+				"id": "04385009",
+				"newline": true
 			},
 			{
 				"name": "殭屍",
@@ -1016,7 +1055,8 @@
 			{
 				"name": "活跳蝦",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04381035.info_.iconRaw.png",
-				"id": "04381035"
+				"id": "04381035",
+				"newline": true
 			},
 			{
 				"name": "海膽",
@@ -1031,7 +1071,8 @@
 			{
 				"name": "黃金海馬",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04381021.info_.iconRaw.png",
-				"id": "04381021"
+				"id": "04381021",
+				"newline": true
 			},
 			{
 				"name": "蒙面河豚",
@@ -1046,7 +1087,8 @@
 			{
 				"name": "毒河豚",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04382044.info_.iconRaw.png",
-				"id": "04382044"
+				"id": "04382044",
+				"newline": true
 			},
 			{
 				"name": "粉紅小海豹",
@@ -1061,7 +1103,8 @@
 			{
 				"name": "長牙海豹",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04382059.info_.iconRaw.png",
-				"id": "04382059"
+				"id": "04382059",
+				"newline": true
 			},
 			{
 				"name": "刺鰭魚",
@@ -1121,7 +1164,8 @@
 			{
 				"name": "紅花蛇",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04382071.info_.iconRaw.png",
-				"id": "04382071"
+				"id": "04382071",
+				"newline": true
 			},
 			{
 				"name": "訓練用稻草人",
@@ -1141,7 +1185,8 @@
 			{
 				"name": "柔道貓熊",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04383047.info_.iconRaw.png",
-				"id": "04383047"
+				"id": "04383047",
+				"newline": true
 			},
 			{
 				"name": "罈壺",
@@ -1161,7 +1206,8 @@
 			{
 				"name": "千年人蔘",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04383027.info_.iconRaw.png",
-				"id": "04383027"
+				"id": "04383027",
+				"newline": true
 			},
 			{
 				"name": "梅花鹿",
@@ -1181,7 +1227,8 @@
 			{
 				"name": "喵仙",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04384013.info_.iconRaw.png",
-				"id": "04384013"
+				"id": "04384013",
+				"newline": true
 			},
 			{
 				"name": "鱷魚克洛克",
@@ -1221,7 +1268,8 @@
 			{
 				"name": "三尾狐",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04383034.info_.iconRaw.png",
-				"id": "04383034"
+				"id": "04383034",
+				"newline": true
 			},
 			{
 				"name": "黃色鬼怪",
@@ -1261,7 +1309,8 @@
 			{
 				"name": "白毛母猴",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04388112.info_.iconRaw.png",
-				"id": "04388112"
+				"id": "04388112",
+				"newline": true
 			},
 			{
 				"name": "藍鬼怪",
@@ -1306,7 +1355,8 @@
 			{
 				"name": "飛翔里奧",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04388106.info_.iconRaw.png",
-				"id": "04388106"
+				"id": "04388106",
+				"newline": true
 			},
 			{
 				"name": "庫拉",
@@ -1326,7 +1376,8 @@
 			{
 				"name": "海盜熊",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04388108.info_.iconRaw.png",
-				"id": "04388108"
+				"id": "04388108",
+				"newline": true
 			},
 			{
 				"name": "幽靈",
@@ -1361,7 +1412,8 @@
 			{
 				"name": "黑暗冥鐘",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04385000.info_.iconRaw.png",
-				"id": "04385000"
+				"id": "04385000",
+				"newline": true
 			},
 			{
 				"name": "幽魂發條熊",
@@ -1381,7 +1433,8 @@
 			{
 				"name": "怨靈發條熊隊長",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04385020.info_.iconRaw.png",
-				"id": "04385020"
+				"id": "04385020",
+				"newline": true
 			},
 			{
 				"name": "貝爾芬",
@@ -1401,7 +1454,8 @@
 			{
 				"name": "怨靈女巫",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04386010.info_.iconRaw.png",
-				"id": "04386010"
+				"id": "04386010",
+				"newline": true
 			},
 			{
 				"name": "百烈",
@@ -1421,7 +1475,8 @@
 			{
 				"name": "巨人維京",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04386009.info_.iconRaw.png",
-				"id": "04386009"
+				"id": "04386009",
+				"newline": true
 			},
 			{
 				"name": "通道守門人",
@@ -1456,7 +1511,8 @@
 			{
 				"name": "金屬甲蟲",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04385001.info_.iconRaw.png",
-				"id": "04385001"
+				"id": "04385001",
+				"newline": true
 			},
 			{
 				"name": "侏儒怪",
@@ -1471,7 +1527,8 @@
 			{
 				"name": "變種侏儒怪",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04385005.info_.iconRaw.png",
-				"id": "04385005"
+				"id": "04385005",
+				"newline": true
 			},
 			{
 				"name": "哈維",
@@ -1491,7 +1548,8 @@
 			{
 				"name": "惡魔綿羊",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04385019.info_.iconRaw.png",
-				"id": "04385019"
+				"id": "04385019",
+				"newline": true
 			},
 			{
 				"name": "暗黑半人馬",
@@ -1506,7 +1564,8 @@
 			{
 				"name": "寒冰半人馬",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04385018.info_.iconRaw.png",
-				"id": "04385018"
+				"id": "04385018",
+				"newline": true
 			},
 			{
 				"name": "藍色雙角龍",
@@ -1526,7 +1585,8 @@
 			{
 				"name": "進化迅猛龍",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04386006.info_.iconRaw.png",
-				"id": "04386006"
+				"id": "04386006",
+				"newline": true
 			},
 			{
 				"name": "藍翼龍",
@@ -1551,7 +1611,8 @@
 			{
 				"name": "雙刀龍戰士",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04386016.info_.iconRaw.png",
-				"id": "04386016"
+				"id": "04386016",
+				"newline": true
 			},
 			{
 				"name": "幼年龍",
@@ -1601,7 +1662,8 @@
 			{
 				"name": "回憶守護隊長",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04386024.info_.iconRaw.png",
-				"id": "04386024"
+				"id": "04386024",
+				"newline": true
 			},
 			{
 				"name": "時間之眼",
@@ -1626,7 +1688,8 @@
 			{
 				"name": "悔恨守護隊長",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04387009.info_.iconRaw.png",
-				"id": "04387009"
+				"id": "04387009",
+				"newline": true
 			},
 			{
 				"name": "時間之眼",
@@ -1671,7 +1734,8 @@
 			{
 				"name": "梅卡提安",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04388124.info_.iconRaw.png",
-				"id": "04388124"
+				"id": "04388124",
+				"newline": true
 			},
 			{
 				"name": "葛雷族人",
@@ -1691,7 +1755,8 @@
 			{
 				"name": "新葛雷黑",
 				"img": "https://oldprobb.com/wp-content/uploads/2026/01/04388123.info_.iconRaw.png",
-				"id": "04388123"
+				"id": "04388123",
+				"newline": true
 			},
 			{
 				"name": "機器人MT-09",
