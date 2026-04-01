@@ -59,7 +59,7 @@
             background: #222;
             border: 1px solid #444;
             padding: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             border-radius: 8px;
             display: flex;
             flex-direction: column;
@@ -110,7 +110,6 @@
             transition: transform 0.3s;
         }
 
-        /* 摺疊時箭頭轉向且隱藏下方的 grid */
         .region-header.collapsed .toggle-icon {
             transform: rotate(-90deg);
         }
@@ -227,14 +226,15 @@
         .hint {
             font-size: 13px;
             color: #888;
+            margin-bottom: 10px;
         }
 
         .controls {
-            margin-top: 10px;
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 20px;
         }
 
         .btn {
@@ -267,17 +267,17 @@
             <button class="btn" onclick="copyMask()" style="padding: 5px 12px;">複製</button>
             <button class="btn" onclick="loadManualMask()" style="padding: 5px 12px;">載入</button>
         </div>
-        <div class="hint">( 防止資料消失請複製備存 )</div>
-    </div>
-
-    <div class="controls">
-        <button class="btn" onclick="setAllRegionsCollapse()">收合展開</button>
-        <button class="btn" id="newlineBtn" onclick="toggleNewline()">分類模式</button>
-        <button class="btn" id="hideCollectedBtn" onclick="toggleHideCollected()">隱藏已蒐集</button>
+        <div style="font-size: 14px; color: #888;">( 防止資料消失請複製備存 )</div>
     </div>
 
     <div class="hint">
         [ <b>Ctrl+ Z</b> 復原 ] [ <b>Ctrl+ Y</b> 重做 ]
+    </div>
+
+    <div class="controls">
+        <button class="btn" onclick="setAllRegionsCollapse()">全展開收合</button>
+        <button class="btn" id="newlineBtn" onclick="toggleNewline()">分類模式</button>
+        <button class="btn" id="hideCollectedBtn" onclick="toggleHideCollected()">隱藏已蒐集</button>
     </div>
 
     <div id="container" class="container"></div>
@@ -293,13 +293,13 @@
         let historyStack = [];
         let redoStack = [];
         let toastTimer;
-        let regionMap = []; // 儲存區域資訊
+        let regionMap = [];
 
         const containerEl = document.getElementById('container');
         const maskInput = document.getElementById('maskInput');
         const toast = document.getElementById('toast');
 
-        // --- Cookie ---
+        // --- Cookie 管理 ---
         function setCookie(name, value, days) {
             const d = new Date();
             d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -373,10 +373,11 @@
             document.getElementById(`n-${idx}`).classList.toggle('excluded');
             syncStorage(getCurrentExcludedState());
             updateAllRegionCounts();
+            recordHistory(); // 完成操作後紀錄
         }
 
         function setRegionState(start, count, shouldExclude, event) {
-            event.stopPropagation();
+            if (event) event.stopPropagation();
             recordHistory();
             for (let i = start; i < start + count; i++) {
                 const el = document.getElementById(`n-${i}`);
@@ -384,9 +385,10 @@
             }
             syncStorage(getCurrentExcludedState());
             updateAllRegionCounts();
+            recordHistory();
         }
 
-        // --- 區域收合邏輯 ---
+        // --- 區域收合 ---
         function toggleRegionCollapse(regionName, headerEl) {
             const isCollapsed = headerEl.classList.toggle('collapsed');
             setCookie(`collapse_${regionName}`, isCollapsed ? '1' : '0', 365);
@@ -395,11 +397,7 @@
         let shouldCollapse = true;
         function setAllRegionsCollapse() {
             regionMap.forEach(reg => {
-                if (shouldCollapse) {
-                    reg.headerEl.classList.add('collapsed');
-                } else {
-                    reg.headerEl.classList.remove('collapsed');
-                }
+                shouldCollapse ? reg.headerEl.classList.add('collapsed') : reg.headerEl.classList.remove('collapsed');
                 setCookie(`collapse_${reg.name}`, shouldCollapse ? '1' : '0', 365);
             });
             shouldCollapse = !shouldCollapse;
@@ -413,10 +411,11 @@
                     if (el && !el.classList.contains('excluded')) done++;
                 }
                 const span = reg.headerEl.querySelector('.region-title');
-                if (span) span.textContent = `${reg.name} ( ${done} / ${reg.count} )`;
+                if (span) span.textContent = `${reg.name} ( ${reg.count - done} / ${reg.count} )`;
             });
         }
 
+        // --- 初始化 ---
         function init() {
             if (typeof RAW_DATA === 'undefined') return;
 
@@ -434,28 +433,22 @@
 
             RAW_DATA.forEach((reg) => {
                 const isCollapsed = getCookie(`collapse_${reg.region}`) === '1';
-
                 const header = document.createElement('div');
                 header.className = `region-header ${isCollapsed ? 'collapsed' : ''}`;
                 const startIndex = itemOffset;
                 const count = reg.items.length;
 
                 header.innerHTML = `
-                    <div>
-                        <span class="toggle-icon">▼</span>
-                        <span class="region-title">${reg.region}</span>
-                    </div>
+                    <div><span class="toggle-icon">▼</span><span class="region-title">${reg.region}</span></div>
                     <div class="region-controls">
                         <button class="btn-sm" onclick="setRegionState(${startIndex}, ${count}, false, event)">區域全開</button>
                         <button class="btn-sm" onclick="setRegionState(${startIndex}, ${count}, true, event)">區域全關</button>
-                    </div>
-                `;
+                    </div>`;
                 header.onclick = () => toggleRegionCollapse(reg.region, header);
                 containerEl.appendChild(header);
 
                 const grid = document.createElement('div');
                 grid.className = 'monster-grid';
-
                 reg.items.forEach(item => {
                     const idx = flatRegistry.length;
                     flatRegistry.push(item);
@@ -466,14 +459,10 @@
                     node.onclick = () => toggleNode(idx);
                     grid.appendChild(node);
                     itemOffset++;
-
                     if (item.newline === true) {
-                        const breakEl = document.createElement('div');
-                        breakEl.className = 'grid-break';
-                        grid.appendChild(breakEl);
+                        const b = document.createElement('div'); b.className = 'grid-break'; grid.appendChild(b);
                     }
                 });
-
                 containerEl.appendChild(grid);
                 regionMap.push({ headerEl: header, start: startIndex, count: count, name: reg.region });
             });
@@ -485,33 +474,67 @@
             maskInput.value = m || "";
         }
 
-        // --- 其他按鈕功能 ---
+        // --- 快捷鍵與工具 ---
+        function copyMask() {
+            maskInput.select();
+            document.execCommand('copy');
+            showToast();
+        }
+
+        function loadManualMask() {
+            recordHistory();
+            applyState(unpack(maskInput.value.trim(), flatRegistry.length));
+            recordHistory();
+        }
+
         function toggleNewline() {
             const isEnabled = document.body.classList.toggle('enable-newline');
             updateNewlineUI(isEnabled);
             setCookie('monster_newline', isEnabled ? '1' : '0', 365);
         }
+
         function updateNewlineUI(isEnabled) {
             const btn = document.getElementById('newlineBtn');
-            if (btn) btn.innerText = isEnabled ? '切換到密集模式' : '切換到分類模式';
+            if (btn) btn.innerText = isEnabled ? '密集模式' : '分類模式';
         }
+
         function toggleHideCollected() {
             const isHidden = document.body.classList.toggle('hide-collected');
             updateHideUI(isHidden);
             setCookie('monster_hide', isHidden ? '1' : '0', 365);
         }
+
         function updateHideUI(isHidden) {
             const btn = document.getElementById('hideCollectedBtn');
             if (btn) btn.innerText = isHidden ? '顯示已蒐集' : '隱藏已蒐集';
         }
-        function copyMask() {
-            maskInput.select();
-            document.execCommand('copy');
-        }
-        function loadManualMask() {
-            recordHistory();
-            applyState(unpack(maskInput.value.trim(), flatRegistry.length));
-        }
+
+        // 重點修正：快捷鍵監聽器
+        window.addEventListener('keydown', e => {
+            if (e.ctrlKey || e.metaKey) {
+                const key = e.key.toLowerCase();
+                if (key === 'z') {
+                    e.preventDefault();
+                    if (historyStack.length > 1) {
+                        redoStack.push(historyStack.pop());
+                        applyState(historyStack[historyStack.length - 1], true);
+                    }
+                } else if (key === 'y') {
+                    e.preventDefault();
+                    if (redoStack.length > 0) {
+                        const state = redoStack.pop();
+                        historyStack.push(state);
+                        applyState(state, true);
+                    }
+                } else if (key === 's') {
+                    e.preventDefault();
+                    syncStorage(getCurrentExcludedState());
+                } else if (key === 'c' && window.getSelection().toString() === "") {
+                    // 只有在沒選取文字的情況下，Ctrl+C 才會觸發代碼複製
+                    copyMask();
+                }
+            }
+        });
 
         window.onload = init;
     </script>
