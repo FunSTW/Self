@@ -369,6 +369,7 @@
             recordHistory();
             document.getElementById(`n-${idx}`).classList.toggle('excluded');
             syncStorage(getCurrentExcludedState());
+            updateAllRegionCounts();
             recordHistory();
         }
 
@@ -376,6 +377,7 @@
             recordHistory();
             const state = (shouldExclude ? "1" : "0").repeat(flatRegistry.length);
             applyState(state);
+            updateAllRegionCounts();
             recordHistory();
         }
 
@@ -478,6 +480,28 @@
             }
         });
 
+        function updateAllRegionCounts() {
+            regionMap.forEach(reg => {
+                let done = 0;
+
+                for (let i = reg.start; i < reg.start + reg.count; i++) {
+                    const el = document.getElementById(`n-${i}`);
+                    if (el && !el.classList.contains('excluded')) {
+                        done++;
+                    }
+                }
+
+                const total = reg.count;
+                const undone = total - done;
+
+                const span = reg.headerEl.querySelector('span');
+                if (span) {
+                    span.textContent = `${reg.name} ( ${undone} / ${total} )`;
+                }
+            });
+        }
+
+        let regionMap = [];
         // --- 修改原本的 init 函數，加入讀取設定的邏輯 ---
         function init() {
             if (typeof RAW_DATA === 'undefined') return;
@@ -498,12 +522,16 @@
             let itemOffset = 0;
             flatRegistry = [];
             gridEl.innerHTML = '';
+            regionMap = [];
 
             RAW_DATA.forEach(reg => {
                 const header = document.createElement('div');
                 header.className = 'region-header';
                 const startIndex = itemOffset;
                 const count = reg.items.length;
+                const doneCount = reg.items.filter(i => i.done).length;
+                const totalCount = reg.items.length;
+                const undoneCount = totalCount - doneCount;
                 header.innerHTML = `
 				<span>${reg.region}</span>
 				<div class="region-controls">
@@ -512,6 +540,14 @@
 				</div>
 			`;
                 gridEl.appendChild(header);
+                regionMap.push({
+                    headerEl: header,
+                    start: startIndex,
+                    count: count,
+                    name: reg.region
+                });
+
+                updateAllRegionCounts();
 
                 reg.items.forEach(item => {
                     const idx = flatRegistry.length;
