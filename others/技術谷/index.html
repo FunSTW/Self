@@ -204,7 +204,7 @@
 
         .monster-name {
             font-size: 10px;
-            margin-top: 6px;
+            margin-top: 2px;
             color: var(--light-gold);
         }
 
@@ -252,27 +252,27 @@
 
 <body>
 
-    <h1>技術谷 怪物蒐集</h1>
+    <h1>技術谷怪物蒐集</h1>
 
     <div class="mask-manager">
-        <div style="font-size: 16px; color: var(--gold);">目前存檔代碼</div>
+        <div style="font-size: 16px; color: var(--gold);">蒐集存檔遮罩代碼</div>
         <div class="mask-input-group">
             <input type="text" id="maskInput" class="mask-input" placeholder="代碼自動更新中...">
             <button class="btn" onclick="copyMask()" style="padding: 5px 12px;">複製</button>
             <button class="btn" onclick="loadManualMask()" style="padding: 5px 12px;">載入</button>
         </div>
-        <div style="font-size: 16px; color: var(--gold);">( 跨裝置請複製備存，也可複製分享自己的給別人 )</div>
+        <div style="font-size: 16px; color: var(--gold);">( 防止資料消失請複製備存 )</div>
     </div>
 
     <div class="controls">
-        <button class="btn" onclick="setAll(false)">全部已蒐集</button>
-        <button class="btn" onclick="setAll(true)">全部未蒐集</button>
-        <button class="btn" id="newlineBtn" onclick="toggleNewline()">自動換行：關</button>
+        <button class="btn" onclick="setAll(false)">全開</button>
+        <button class="btn" onclick="setAll(true)">全關</button>
+        <button class="btn" id="newlineBtn" onclick="toggleNewline()">newline</button>
         <button class="btn" id="hideCollectedBtn" onclick="toggleHideCollected()">隱藏已蒐集：關</button>
     </div>
 
     <div class="hint">
-        <b>Ctrl+ Z / Y</b> 復原/重做 <br /> <b>Ctrl+ S</b> 馬上儲存
+        <b>Ctrl+ Z</b> 復原 <b>Ctrl+ Y</b> 重做
     </div>
 
     <div class="container">
@@ -280,7 +280,7 @@
     </div>
 
     <div id="toast">
-        <div class="toast-title">✓ 狀態已同步</div>
+        <div class="toast-title">狀態已同步</div>
     </div>
 
     <script type="text/javascript" src="database.js"></script>
@@ -417,6 +417,9 @@
                 } else if (key === 's') {
                     e.preventDefault(); // 阻擋網頁儲存
                     syncStorage(getCurrentExcludedState()); // 觸發手動同步
+                } else if (key === 'c') {
+                    e.preventDefault();
+                    copyMask();
                 }
             }
         });
@@ -447,7 +450,7 @@
         function updateNewlineUI(isEnabled) {
             const btn = document.getElementById('newlineBtn');
             if (btn) {
-                btn.innerText = `自動換行：${isEnabled ? '開' : '關'}`;
+                btn.innerText = `${isEnabled ? '密集模式' : '分類模式'}`;
                 // 選項：開啟時可以換顏色區分
                 btn.style.borderColor = isEnabled ? '#55ff55' : 'var(--gold)';
             }
@@ -463,7 +466,7 @@
             const btn = document.getElementById('hideCollectedBtn');
             if (btn) {
                 // 文字改為「僅顯示已蒐集」，開啟時畫面上只會剩下亮著的怪物
-                btn.innerText = `僅顯示未蒐集：${isHidden ? '開' : '關'}`;
+                btn.innerText = `${isHidden ? '顯示已蒐集' : '隱藏已蒐集'}`;
                 btn.style.borderColor = isHidden ? '#55ff55' : 'var(--gold)';
             }
         }
@@ -497,7 +500,6 @@
             gridEl.innerHTML = '';
 
             RAW_DATA.forEach(reg => {
-                // ... (這部分維持你原本生成 header 的程式碼)
                 const header = document.createElement('div');
                 header.className = 'region-header';
                 const startIndex = itemOffset;
@@ -505,8 +507,8 @@
                 header.innerHTML = `
 				<span>${reg.region}</span>
 				<div class="region-controls">
-					<button class="btn-sm" onclick="setRegionState(${startIndex}, ${count}, false)">全開</button>
-					<button class="btn-sm" onclick="setRegionState(${startIndex}, ${count}, true)">全關</button>
+					<button class="btn-sm" onclick="setRegionState(${startIndex}, ${count}, false)">區域全開</button>
+					<button class="btn-sm" onclick="setRegionState(${startIndex}, ${count}, true)">區域全關</button>
 				</div>
 			`;
                 gridEl.appendChild(header);
