@@ -413,7 +413,7 @@
                     if (el && !el.classList.contains('excluded')) done++;
                 }
                 const span = reg.headerEl.querySelector('.region-title');
-                if (span) span.textContent = `${reg.name} ( ${reg.count - done} / ${reg.count} )`;
+                if (span) span.textContent = `${reg.name} ( ${done} / ${reg.count} )`;
             });
         }
 
@@ -493,7 +493,7 @@
         }
         function updateNewlineUI(isEnabled) {
             const btn = document.getElementById('newlineBtn');
-            if (btn) btn.innerText = isEnabled ? '密集模式' : '分類模式';
+            if (btn) btn.innerText = isEnabled ? '切換到密集模式' : '切換到分類模式';
         }
         function toggleHideCollected() {
             const isHidden = document.body.classList.toggle('hide-collected');
@@ -502,7 +502,7 @@
         }
         function updateHideUI(isHidden) {
             const btn = document.getElementById('hideCollectedBtn');
-            if (btn) btn.innerText = isHidden ? '顯示全部' : '隱藏已蒐集';
+            if (btn) btn.innerText = isHidden ? '顯示已蒐集' : '隱藏已蒐集';
         }
         function copyMask() {
             maskInput.select();
