@@ -320,18 +320,31 @@
         const pack = b => {
             const u8 = new Uint8Array(Math.ceil(b.length / 8));
             b.forEach((v, i) => { if (v === "1") u8[i >> 3] |= (1 << (i % 8)); });
-            return btoa(String.fromCharCode.apply(null, u8)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+            // 在 btoa 產生的字串前後加上 ` 符號
+            const base64 = btoa(String.fromCharCode.apply(null, u8)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+            return `\`${base64}\``;
         };
+
         const unpack = (s, len) => {
             if (!s) return "0".repeat(len);
+
+            // 移除前後可能存在的 ` 符號 (支援有或沒有符號的載入)
+            let cleanStr = s.trim();
+            if (cleanStr.startsWith('`') && cleanStr.endsWith('`')) {
+                cleanStr = cleanStr.slice(1, -1);
+            }
+
             try {
-                const b = atob(s.replace(/-/g, '+').replace(/_/g, '/'));
+                const b = atob(cleanStr.replace(/-/g, '+').replace(/_/g, '/'));
                 const u8 = new Uint8Array(b.length);
                 for (let i = 0; i < b.length; i++) u8[i] = b.charCodeAt(i);
                 let res = "";
                 for (let i = 0; i < len; i++) res += (u8[i >> 3] & (1 << (i % 8))) ? "1" : "0";
                 return res.slice(0, len);
-            } catch (e) { return "0".repeat(len); }
+            } catch (e) {
+                console.error("解碼失敗:", e);
+                return "0".repeat(len);
+            }
         };
 
         // --- 核心邏輯 ---
@@ -411,7 +424,7 @@
                     if (el && !el.classList.contains('excluded')) done++;
                 }
                 const span = reg.headerEl.querySelector('.region-title');
-                if (span) span.textContent = `${reg.name} ( ${reg.count - done} / ${reg.count} )`;
+                if (span) span.textContent = `${reg.name} ( ${done} / ${reg.count} )`;
             });
         }
 
