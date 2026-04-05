@@ -371,6 +371,7 @@
             clearTimeout(toastTimer);
             toast.classList.add('show');
             toastTimer = setTimeout(() => { toast.classList.remove('show'); }, 2000);
+            toast.querySelector('.toast-title').textContent = '狀態已同步';
         }
 
         function recordHistory() {
@@ -491,7 +492,10 @@
         function copyMask() {
             maskInput.select();
             document.execCommand('copy');
-            showToast();
+            clearTimeout(toastTimer);
+            toast.classList.add('show');
+            toastTimer = setTimeout(() => { toast.classList.remove('show'); }, 2000);
+            toast.querySelector('.toast-title').textContent = '已複製存檔';
         }
 
         function loadManualMask() {
@@ -542,8 +546,7 @@
                 } else if (key === 's') {
                     e.preventDefault();
                     syncStorage(getCurrentExcludedState());
-                } else if (key === 'c' && window.getSelection().toString() === "") {
-                    // 只有在沒選取文字的情況下，Ctrl+C 才會觸發代碼複製
+                } else if (key === 'c') {
                     copyMask();
                 }
             }
