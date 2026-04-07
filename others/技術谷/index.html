@@ -63,7 +63,7 @@
             border-radius: 8px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 4px;
             align-items: center;
             box-sizing: border-box;
         }
@@ -201,7 +201,7 @@
         #toast {
             position: fixed;
             bottom: 20px;
-            right: 20px;
+            right: 120px;
             background: rgba(34, 34, 34, 0.95);
             border: 1px solid var(--gold);
             padding: 10px 15px;
@@ -315,17 +315,17 @@
     </div>
 
     <div class="mask-manager">
-        <div style="font-size: 16px; color: var(--gold);">蒐集存檔遮罩代碼</div>
+        <div style="font-size: 16px; color: var(--gold);">蒐集存檔代碼</div>
+        <div style="font-size: 10px; color: #888; ">( 代碼只會存在本地瀏覽器中，防止資料消失請複製備存 )</div>
         <div class="mask-input-group">
             <input type="text" id="maskInput" class="mask-input" placeholder="代碼自動更新中...">
             <button class="btn" onclick="copyMask()" style="padding: 5px 12px;">複製</button>
             <button class="btn" onclick="loadManualMask()" style="padding: 5px 12px;">載入</button>
         </div>
-        <div style="font-size: 14px; color: #888;">( 防止資料消失請複製備存 )</div>
     </div>
 
     <div class="hint">
-        [ <b>Ctrl+ Z</b> 復原 ] [ <b>Ctrl+ Y</b> 重做 ]
+        [ <b>Ctrl+ Z</b> 復原 ] [ <b>Ctrl+ Y</b> 重做 ] [ <b>Ctrl+ C</b> 快速複製存檔代碼 ]<br>
     </div>
 
     <div class="controls">
@@ -337,7 +337,7 @@
     <div id="container" class="container"></div>
 
     <div id="toast">
-        <div class="toast-title">狀態已同步</div>
+        <div class="toast-title">已儲存到本地瀏覽器</div>
     </div>
 
     <script type="text/javascript" src="database.js"></script>
@@ -425,7 +425,7 @@
             clearTimeout(toastTimer);
             toast.classList.add('show');
             toastTimer = setTimeout(() => { toast.classList.remove('show'); }, 2000);
-            toast.querySelector('.toast-title').textContent = '狀態已同步';
+            toast.querySelector('.toast-title').textContent = '已儲存到本地瀏覽器';
         }
 
         function recordHistory() {
