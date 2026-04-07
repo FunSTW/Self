@@ -253,12 +253,66 @@
             color: #000;
             font-weight: bold;
         }
+
+        .floating-gif {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            z-index: 9999;
+        }
+
+        .floating-gif img {
+            width: 100%;
+            image-rendering: pixelated;
+            cursor: pointer;
+            content: url("stand.gif");
+        }
+
+        .floating-gif img:hover {
+            width: 100%;
+            image-rendering: pixelated;
+            cursor: pointer;
+            content: url("move.gif");
+        }
+
+
+        /* 訊息框 */
+        .tooltip {
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+            margin-bottom: 8px;
+            padding: 6px 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            font-size: 12px;
+            border-radius: 6px;
+            white-space: nowrap;
+
+            opacity: 0;
+            transform: translateY(5px);
+            transition: 0.2s;
+            pointer-events: none;
+        }
+
+        .floating-gif:hover .tooltip {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 
 <body>
 
-    <h1>技術谷怪物蒐集</h1>
+    <h1>
+        技術谷怪物蒐集
+    </h1>
+
+    <div class="floating-gif">
+        <img src="stand.gif">
+        <div class="tooltip">Made By 🩷 砂兔</div>
+    </div>
 
     <div class="mask-manager">
         <div style="font-size: 16px; color: var(--gold);">蒐集存檔遮罩代碼</div>
